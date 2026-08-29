@@ -37,7 +37,8 @@
     geo: null,         // { lat, lon, accuracy, at }
     geoAsked: false,
     pendingPoint: null,
-    pendingType: null
+    pendingType: null,
+    pendingPhoto: null
   };
 
   var uid = 0;
@@ -82,6 +83,10 @@
   }
 
   function photoCount() { return Object.keys(state.photos).length; }
+
+  function markPhotoCount() {
+    return state.marks.filter(function (m) { return !!m.photo; }).length;
+  }
 
   function hasData() {
     return photoCount() > 0 || state.marks.length > 0;
@@ -304,9 +309,51 @@
 
   var lastFocused = null;
 
+  // Close-up photo attached to the mark being added.
+  function showPendingPhoto() {
+    var thumb = $('#markPhotoThumb');
+    var rm = $('#markPhotoRemove');
+    var btn = $('#markPhotoBtn');
+    if (state.pendingPhoto) {
+      thumb.src = state.pendingPhoto.dataUrl;
+      thumb.classList.remove('is-hidden');
+      rm.classList.remove('is-hidden');
+      btn.textContent = 'Retake close-up';
+    } else {
+      thumb.removeAttribute('src');
+      thumb.classList.add('is-hidden');
+      rm.classList.add('is-hidden');
+      btn.textContent = 'Take close-up';
+    }
+  }
+
+  $('#markPhotoInput').addEventListener('change', function () {
+    var input = $('#markPhotoInput');
+    if (!input.files || !input.files[0]) { return; }
+    $('#markPhotoBtn').textContent = 'Working\u2026';
+    shrinkImage(input.files[0], function (err, result) {
+      input.value = '';
+      if (err) {
+        showPendingPhoto();
+        alert('That photo could not be read. Please take it again.');
+        return;
+      }
+      result.takenAt = stamp();
+      state.pendingPhoto = result;
+      showPendingPhoto();
+    });
+  });
+
+  $('#markPhotoRemove').addEventListener('click', function () {
+    state.pendingPhoto = null;
+    showPendingPhoto();
+  });
+
+
   function openMarkModal(point) {
     state.pendingPoint = point;
     state.pendingType = DAMAGE_TYPES[0];
+    state.pendingPhoto = null;
     lastFocused = document.activeElement;
 
     var btns = $('#typeGrid').querySelectorAll('.type-btn');
@@ -316,6 +363,7 @@
       btns[i].setAttribute('aria-checked', on ? 'true' : 'false');
     }
     $('#markNote').value = '';
+    showPendingPhoto();
     $('#markModal').classList.remove('is-hidden');
     btns[0].focus();
   }
@@ -323,6 +371,7 @@
   function closeMarkModal() {
     $('#markModal').classList.add('is-hidden');
     state.pendingPoint = null;
+    state.pendingPhoto = null;
     if (lastFocused && lastFocused.focus) { lastFocused.focus(); }
   }
 
@@ -346,6 +395,7 @@
       y: state.pendingPoint.y,
       type: state.pendingType || DAMAGE_TYPES[0],
       note: $('#markNote').value.trim(),
+      photo: state.pendingPhoto,
       at: stamp()
     });
     closeMarkModal();
@@ -400,6 +450,47 @@
       time.className = 'mark-time mono';
       time.textContent = m.at.local;
       body.appendChild(time);
+
+      // Close-up photo for this mark: add one, or replace the one that is there.
+      var shot = document.createElement('div');
+      shot.className = 'mark-shot';
+
+      var shotImg = document.createElement('img');
+      shotImg.className = 'mark-shot-thumb';
+      shotImg.alt = '';
+      if (m.photo) { shotImg.src = m.photo.dataUrl; } else { shotImg.className += ' is-hidden'; }
+
+      var shotInput = document.createElement('input');
+      shotInput.type = 'file';
+      shotInput.accept = 'image/*';
+      shotInput.setAttribute('capture', 'environment');
+      shotInput.id = 'markshot-' + m.id;
+
+      var shotLabel = document.createElement('label');
+      shotLabel.className = 'mark-shot-cta';
+      shotLabel.setAttribute('for', shotInput.id);
+      shotLabel.textContent = m.photo ? 'Replace' : 'Add close-up photo';
+
+      shotInput.addEventListener('change', function () {
+        if (!shotInput.files || !shotInput.files[0]) { return; }
+        shotLabel.textContent = 'Working\u2026';
+        shrinkImage(shotInput.files[0], function (err, result) {
+          shotInput.value = '';
+          if (err) {
+            shotLabel.textContent = m.photo ? 'Replace' : 'Add close-up photo';
+            alert('That photo could not be read. Please take it again.');
+            return;
+          }
+          result.takenAt = stamp();
+          m.photo = result;
+          renderMarks();
+        });
+      });
+
+      shot.appendChild(shotImg);
+      shot.appendChild(shotInput);
+      shot.appendChild(shotLabel);
+      body.appendChild(shot);
 
       var rm = document.createElement('button');
       rm.type = 'button';
@@ -493,6 +584,10 @@
     addRow(dl, 'Fuel level', t.fuel);
     addRow(dl, 'Photos taken', photoCount() + ' of ' + SHOTS.length, photoCount() < SHOTS.length);
     addRow(dl, 'Damage marks', String(state.marks.length));
+    if (state.marks.length) {
+      addRow(dl, 'Close-up photos', markPhotoCount() + ' of ' + state.marks.length,
+        markPhotoCount() < state.marks.length);
+    }
     addRow(dl, 'Location',
       state.geo
         ? state.geo.lat.toFixed(5) + ', ' + state.geo.lon.toFixed(5)
@@ -661,6 +756,7 @@
     pair('Created (UTC)', now.iso);
     pair('Photos included', photoCount() + ' of ' + SHOTS.length);
     pair('Damage marks', String(state.marks.length));
+    pair('Close-up photos', String(markPhotoCount()));
     if (state.geo) {
       pair('Latitude', state.geo.lat.toFixed(6));
       pair('Longitude', state.geo.lon.toFixed(6));
@@ -677,8 +773,9 @@
       line('No damage was marked during this inspection.', 10, 'normal', 90);
     } else {
       state.marks.forEach(function (m, i) {
-        line((i + 1) + '. ' + m.type + (m.note ? ' — ' + m.note : ''), 11, 'bold');
+        line((i + 1) + '. ' + m.type + (m.note ? ' \u2014 ' + m.note : ''), 11, 'bold');
         line('    ' + stampText(m.at), 9, 'normal', 110);
+        if (m.photo) { line('    Close-up photo included in this report.', 9, 'normal', 110); }
         y += 1;
       });
     }
@@ -720,10 +817,8 @@
              10, 'normal', 110);
       }
 
-      /* ---- One page per photo ---- */
-      SHOTS.forEach(function (shot) {
-        var p = state.photos[shot.key];
-        if (!p) { return; }
+      // One photo page: dark header, the image scaled to fit, then its timestamps.
+      function photoPage(heading, subheading, p, caption) {
         doc.addPage();
 
         doc.setFillColor(14, 17, 22);
@@ -731,34 +826,64 @@
         doc.setFont('helvetica', 'bold');
         doc.setFontSize(13);
         doc.setTextColor(255, 197, 49);
-        doc.text(shot.name, M, 9);
+        doc.text(heading, M, 9);
         doc.setFont('courier', 'normal');
         doc.setFontSize(9);
         doc.setTextColor(235);
-        doc.text((t.plate || 'NO PLATE') + '  ·  ' + t.phase, M, 15.5);
+        doc.text(subheading, M, 15.5);
 
         var top = 26;
+        if (caption) {
+          doc.setFont('helvetica', 'normal');
+          doc.setFontSize(10);
+          doc.setTextColor(60);
+          var capLines = doc.splitTextToSize(caption, W - M * 2);
+          for (var c = 0; c < capLines.length; c++) {
+            doc.text(capLines[c], M, top);
+            top += 5;
+          }
+          top += 3;
+        }
+
         var availW = W - M * 2;
         var availH = H - top - 22;
-        var ratio2 = p.height / p.width;
-        var w2 = availW, h2 = w2 * ratio2;
-        if (h2 > availH) { h2 = availH; w2 = h2 / ratio2; }
+        var ratio = p.height / p.width;
+        var w = availW, h = w * ratio;
+        if (h > availH) { h = availH; w = h / ratio; }
         try {
-          doc.addImage(p.dataUrl, 'JPEG', (W - w2) / 2, top, w2, h2);
+          doc.addImage(p.dataUrl, 'JPEG', (W - w) / 2, top, w, h);
         } catch (e) {
           doc.setTextColor(120);
           doc.setFont('helvetica', 'normal');
           doc.setFontSize(10);
           doc.text('This photo could not be added to the PDF.', M, top + 10);
-          h2 = 12;
+          h = 12;
         }
 
-        y = top + h2 + 7;
+        var ty = top + h + 7;
         doc.setFont('courier', 'normal');
         doc.setFontSize(9);
         doc.setTextColor(70);
-        doc.text('Taken: ' + p.takenAt.local, M, y);
-        doc.text('UTC:   ' + p.takenAt.iso, M, y + 5);
+        doc.text('Taken: ' + p.takenAt.local, M, ty);
+        doc.text('UTC:   ' + p.takenAt.iso, M, ty + 5);
+      }
+
+      /* ---- One page per damage close-up ---- */
+      state.marks.forEach(function (m, i) {
+        if (!m.photo) { return; }
+        photoPage(
+          'Damage ' + (i + 1) + ' \u2014 ' + m.type,
+          (t.plate || 'NO PLATE') + '  \u00b7  ' + t.phase + '  \u00b7  mark ' + (i + 1),
+          m.photo,
+          m.note ? 'Driver\u2019s note: ' + m.note : 'Close-up of mark ' + (i + 1) + ' on the diagram.'
+        );
+      });
+
+      /* ---- One page per walk-around photo ---- */
+      SHOTS.forEach(function (shot) {
+        var p = state.photos[shot.key];
+        if (!p) { return; }
+        photoPage(shot.name, (t.plate || 'NO PLATE') + '  \u00b7  ' + t.phase, p, null);
       });
 
       var name = 'DingProof_' + safePlate(t.plate) + '_' + fileDateStr(now.date) + '.pdf';

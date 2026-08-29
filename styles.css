@@ -274,6 +274,34 @@ legend.label{padding:0}
 }
 .empty-note{color:var(--muted);font-size:14px;margin:10px 0 0}
 
+/* ---------- close-up photo on a mark ---------- */
+.photo-pick{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.photo-pick input[type=file]{
+  position:absolute;width:1px;height:1px;opacity:0;
+  overflow:hidden;clip:rect(0 0 0 0);
+}
+.photo-pick input[type=file]:focus-visible + .btn{outline:3px solid var(--accent);outline-offset:2px}
+.photo-pick-thumb{
+  width:56px;height:56px;flex:0 0 auto;border-radius:9px;
+  object-fit:cover;border:1px solid var(--border);background:#000;
+}
+
+.mark-shot{display:flex;align-items:center;gap:10px;margin-top:8px}
+.mark-shot input[type=file]{
+  position:absolute;width:1px;height:1px;opacity:0;
+  overflow:hidden;clip:rect(0 0 0 0);
+}
+.mark-shot input[type=file]:focus-visible + .mark-shot-cta{outline:3px solid var(--accent);outline-offset:2px}
+.mark-shot-thumb{
+  width:48px;height:48px;flex:0 0 auto;border-radius:8px;
+  object-fit:cover;border:1px solid var(--border);background:#000;
+}
+.mark-shot-cta{
+  min-height:40px;display:inline-flex;align-items:center;justify-content:center;
+  padding:8px 12px;border-radius:9px;font-size:14px;font-weight:700;
+  background:transparent;color:var(--text);border:1px solid var(--border);cursor:pointer;
+}
+
 /* ---------- summary ---------- */
 .summary{
   margin:0 0 8px;padding:0;

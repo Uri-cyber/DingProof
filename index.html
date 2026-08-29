@@ -216,6 +216,18 @@
       <span class="label">Note (optional)</span>
       <input type="text" id="markNote" maxlength="120" placeholder="e.g. deep scratch, about 10 cm" autocomplete="off">
     </label>
+
+    <div class="field">
+      <span class="label">Close-up photo (optional)</span>
+      <p class="hint">A photo of this exact spot. It goes in the report on its own page.</p>
+      <div class="photo-pick">
+        <img id="markPhotoThumb" class="photo-pick-thumb is-hidden" alt="">
+        <input type="file" id="markPhotoInput" accept="image/*" capture="environment">
+        <label class="btn btn-ghost" for="markPhotoInput" id="markPhotoBtn">Take close-up</label>
+        <button type="button" class="btn btn-ghost is-hidden" id="markPhotoRemove">Remove photo</button>
+      </div>
+    </div>
+
     <div class="actions">
       <button type="button" class="btn btn-ghost" id="markCancel">Cancel</button>
       <button type="button" class="btn btn-primary" id="markSave">Add mark</button>

@@ -26,10 +26,11 @@ email to yourself and send to the rental company.
    opens straight from the page.
 3. **Damage diagram** — tap a top-down car outline anywhere you see a problem, pick the type
    (scratch, dent, wheel scuff, chip or crack, missing part, stain or tear, other) and add a note.
-   Each mark becomes a numbered red pin plus a numbered row in a list.
-4. **PDF report** — a summary page, the diagram with its pins, then one page per photo. Every
-   timestamp is recorded in both your local time and ISO 8601 UTC.
-   The file is named `DingProof_PLATE_YYYY-MM-DD.pdf`.
+   Each mark becomes a numbered red pin plus a numbered row in a list. You can also attach a
+   **close-up photo** to any mark, either while adding it or later from the list.
+4. **PDF report** — a summary page, the diagram with its pins, one page per damage close-up, then
+   one page per walk-around photo. Every timestamp is recorded in both your local time and
+   ISO 8601 UTC. The file is named `DingProof_PLATE_YYYY-MM-DD.pdf`.
 
 Location is optional. If you allow it, latitude, longitude and accuracy appear on the summary page.
 If you refuse, the report says "Location not recorded" and nothing is blocked.
