@@ -29,8 +29,11 @@ email to yourself and send to the rental company.
    Each mark becomes a numbered red pin plus a numbered row in a list. You can also attach a
    **close-up photo** to any mark, either while adding it or later from the list.
 4. **PDF report** — a summary page, the diagram with its pins, one page per damage close-up, then
-   one page per walk-around photo. Every timestamp is recorded in both your local time and
-   ISO 8601 UTC. The file is named `DingProof_PLATE_YYYY-MM-DD.pdf`.
+   one page per walk-around photo. Every photo page is landscape, with the picture large on the
+   left and a panel beside it giving the photo's title and its details: position, what the shot
+   should show (or the damage type and your note), the plate, whether it was pickup or return,
+   and the time it was taken. Every timestamp is recorded in both your local time and ISO 8601
+   UTC. The file is named `DingProof_PLATE_YYYY-MM-DD.pdf`.
 
 Location is optional. If you allow it, latitude, longitude and accuracy appear on the summary page.
 If you refuse, the report says "Location not recorded" and nothing is blocked.

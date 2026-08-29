@@ -824,7 +824,7 @@
 
     /* ---- Page 2: diagram ---- */
     diagramToPng(function (png) {
-      doc.addPage();
+      doc.addPage('a4', 'portrait');
       y = M;
       line('Damage diagram', 15, 'bold');
       y += 2;
@@ -849,73 +849,122 @@
              10, 'normal', 110);
       }
 
-      // One photo page: dark header, the image scaled to fit, then its timestamps.
-      function photoPage(heading, subheading, p, caption) {
-        doc.addPage();
+      // One photo page: the picture on the left, its title and details in a
+      // panel beside it, so a reader can identify the shot without hunting.
+      function photoPage(title, rows, p) {
+        // Landscape so the picture stays large even with a panel beside it.
+        doc.addPage('a4', 'landscape');
 
+        var PW = 297, PH = 210;
+        var HEAD = 18;
+        var top = HEAD + 7;
+        var DETAIL_W = 66;
+        var GAP = 7;
+        var imgW = PW - M * 2 - DETAIL_W - GAP;
+        var imgH = PH - top - M;
+        var detailX = M + imgW + GAP;
+
+        // header band: which report this page belongs to
         doc.setFillColor(14, 17, 22);
-        doc.rect(0, 0, W, 20, 'F');
+        doc.rect(0, 0, PW, HEAD, 'F');
         doc.setFont('helvetica', 'bold');
         doc.setFontSize(13);
         doc.setTextColor(255, 197, 49);
-        doc.text(heading, M, 9);
+        doc.text('DingProof', M, 12);
         doc.setFont('courier', 'normal');
         doc.setFontSize(9);
         doc.setTextColor(235);
-        doc.text(subheading, M, 15.5);
+        doc.text((t.plate || 'NO PLATE') + '  \u00b7  ' + t.phase, PW - M, 12, { align: 'right' });
 
-        var top = 26;
-        if (caption) {
-          doc.setFont('helvetica', 'normal');
-          doc.setFontSize(10);
-          doc.setTextColor(60);
-          var capLines = doc.splitTextToSize(caption, W - M * 2);
-          for (var c = 0; c < capLines.length; c++) {
-            doc.text(capLines[c], M, top);
-            top += 5;
-          }
-          top += 3;
-        }
-
-        var availW = W - M * 2;
-        var availH = H - top - 22;
+        // the photo, scaled to fit its column
         var ratio = p.height / p.width;
-        var w = availW, h = w * ratio;
-        if (h > availH) { h = availH; w = h / ratio; }
+        var w = imgW, h = w * ratio;
+        if (h > imgH) { h = imgH; w = h / ratio; }
+        var ix = M + (imgW - w) / 2;
+        var iy = top + (imgH - h) / 2;
         try {
-          doc.addImage(p.dataUrl, 'JPEG', (W - w) / 2, top, w, h);
+          doc.addImage(p.dataUrl, 'JPEG', ix, iy, w, h);
         } catch (e) {
           doc.setTextColor(120);
           doc.setFont('helvetica', 'normal');
           doc.setFontSize(10);
           doc.text('This photo could not be added to the PDF.', M, top + 10);
-          h = 12;
         }
 
-        var ty = top + h + 7;
-        doc.setFont('courier', 'normal');
-        doc.setFontSize(9);
-        doc.setTextColor(70);
-        doc.text('Taken: ' + p.takenAt.local, M, ty);
-        doc.text('UTC:   ' + p.takenAt.iso, M, ty + 5);
+        // measure the detail panel before drawing, so it can sit on a tint
+        var inner = DETAIL_W - 8;
+        var titleLines = doc.splitTextToSize(title, inner);
+        var blocks = [];
+        var panelH = 6 + titleLines.length * 5.6 + 4;
+        for (var r = 0; r < rows.length; r++) {
+          var valLines = doc.splitTextToSize(String(rows[r][1]), inner);
+          blocks.push(valLines);
+          panelH += 4.4 + valLines.length * 4.2 + 3;
+        }
+        panelH += 3;
+
+        doc.setFillColor(243, 245, 248);
+        doc.setDrawColor(214, 220, 228);
+        doc.roundedRect(detailX, top, DETAIL_W, panelH, 3, 3, 'FD');
+
+        var dy = top + 8;
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(12);
+        doc.setTextColor(20, 24, 31);
+        for (var ti = 0; ti < titleLines.length; ti++) {
+          doc.text(titleLines[ti], detailX + 4, dy);
+          dy += 5.6;
+        }
+        dy += 1;
+        doc.setDrawColor(206, 213, 222);
+        doc.line(detailX + 4, dy, detailX + DETAIL_W - 4, dy);
+        dy += 5;
+
+        for (var k = 0; k < rows.length; k++) {
+          doc.setFont('helvetica', 'bold');
+          doc.setFontSize(7.2);
+          doc.setTextColor(118, 128, 142);
+          doc.text(String(rows[k][0]).toUpperCase(), detailX + 4, dy);
+          dy += 4.4;
+
+          var mono = /plate|utc|local|position/i.test(rows[k][0]);
+          doc.setFont(mono ? 'courier' : 'helvetica', 'normal');
+          doc.setFontSize(8.6);
+          doc.setTextColor(28, 33, 41);
+          for (var vi = 0; vi < blocks[k].length; vi++) {
+            doc.text(blocks[k][vi], detailX + 4, dy);
+            dy += 4.2;
+          }
+          dy += 3;
+        }
       }
 
       /* ---- One page per damage close-up ---- */
       state.marks.forEach(function (m, i) {
         if (!m.photo) { return; }
-        photoPage(
-          'Damage ' + (i + 1) + ' \u2014 ' + m.type,
-          (t.plate || 'NO PLATE') + '  \u00b7  ' + t.phase + '  \u00b7  mark ' + (i + 1),
-          m.photo,
-          m.note ? 'Driver\u2019s note: ' + m.note : 'Close-up of mark ' + (i + 1) + ' on the diagram.'
-        );
+        photoPage('Damage ' + (i + 1) + ' \u2014 ' + m.type, [
+          ['Mark on diagram', 'Number ' + (i + 1)],
+          ['Type of damage', m.type],
+          ['Driver\u2019s note', m.note || 'No note added'],
+          ['Licence plate', t.plate || 'Not given'],
+          ['Inspection', t.phase],
+          ['Taken (local)', m.photo.takenAt.local],
+          ['Taken (UTC)', m.photo.takenAt.iso]
+        ], m.photo);
       });
 
       /* ---- One page per walk-around photo ---- */
-      SHOTS.forEach(function (shot) {
+      SHOTS.forEach(function (shot, i) {
         var p = state.photos[shot.key];
         if (!p) { return; }
-        photoPage(shot.name, (t.plate || 'NO PLATE') + '  \u00b7  ' + t.phase, p, null);
+        photoPage((i + 1) + '. ' + shot.name, [
+          ['Position', (i + 1) + ' of ' + SHOTS.length],
+          ['What this photo shows', shot.how],
+          ['Licence plate', t.plate || 'Not given'],
+          ['Inspection', t.phase],
+          ['Taken (local)', p.takenAt.local],
+          ['Taken (UTC)', p.takenAt.iso]
+        ], p);
       });
 
       var name = 'DingProof_' + safePlate(t.plate) + '_' + fileDateStr(now.date) + '.pdf';
