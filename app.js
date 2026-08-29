@@ -593,6 +593,38 @@
         ? state.geo.lat.toFixed(5) + ', ' + state.geo.lon.toFixed(5)
         : 'Not recorded',
       !state.geo);
+
+    renderPhotoWarning();
+  }
+
+  // The 8 walk-around photos are the strongest evidence. Say so loudly if
+  // they are missing, but never block the download.
+  function renderPhotoWarning() {
+    var box = $('#photoWarn');
+    var have = photoCount();
+    var missing = SHOTS.length - have;
+
+    if (missing === 0) {
+      box.classList.add('is-hidden');
+      return;
+    }
+
+    if (have === 0) {
+      $('#photoWarnTitle').textContent = 'You have not taken any photos of the car.';
+      $('#photoWarnText').textContent =
+        'Your report will show the damage you marked, but not the car itself. ' +
+        'Photos of the whole car are the strongest evidence you can have. It takes about a minute.';
+      $('#photoWarnBtn').textContent = 'Take the 8 car photos';
+    } else {
+      $('#photoWarnTitle').textContent = missing === 1
+        ? '1 of the 8 car photos is missing.'
+        : missing + ' of the 8 car photos are missing.';
+      $('#photoWarnText').textContent =
+        'You have ' + have + '. The missing ones will not be in the report. ' +
+        'Go back and take them if you can.';
+      $('#photoWarnBtn').textContent = 'Take the missing photos';
+    }
+    box.classList.remove('is-hidden');
   }
 
   /* ---------------------------------------------------------------
