@@ -7,29 +7,40 @@
 <meta name="description" content="DingProof: photograph your rental car in two minutes and build a timestamped PDF report. Free, private, works in your browser.">
 <title>DingProof — Two minutes now. Evidence forever.</title>
 <link rel="stylesheet" href="styles.css">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230E1116'/><text x='16' y='23' font-size='19' text-anchor='middle' fill='%23FFC531' font-family='sans-serif' font-weight='bold'>D</text></svg>">
 </head>
 <body>
 
-<a class="skip-link" href="#main">Skip to content</a>
+<a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
 
 <header class="app-header">
   <div class="wrap">
-    <div class="brand">
-      <span class="brand-mark" aria-hidden="true">D</span>
-      <span class="brand-name">DingProof</span>
+    <div class="head-row">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">D</span>
+        <span class="brand-name">DingProof</span>
+      </div>
+      <div class="lang-row" role="group" aria-label="Language" id="langRow">
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="he">עב</button>
+        <button type="button" class="lang-btn" data-lang="de">DE</button>
+        <button type="button" class="lang-btn" data-lang="fr">FR</button>
+        <button type="button" class="lang-btn" data-lang="es">ES</button>
+      </div>
     </div>
-    <p class="tagline">Two minutes now. Evidence forever.</p>
+    <p class="tagline" data-i18n="tagline">Two minutes now. Evidence forever.</p>
   </div>
 </header>
 
 <div class="wrap">
   <nav class="steps" aria-label="Progress">
     <ol>
-      <li><button type="button" class="step-tab is-active" data-goto="1" aria-current="step"><span class="step-num">1</span><span class="step-label">Car</span></button></li>
-      <li><button type="button" class="step-tab" data-goto="2"><span class="step-num">2</span><span class="step-label">Photos</span></button></li>
-      <li><button type="button" class="step-tab" data-goto="3"><span class="step-num">3</span><span class="step-label">Damage</span></button></li>
-      <li><button type="button" class="step-tab" data-goto="4"><span class="step-num">4</span><span class="step-label">Report</span></button></li>
+      <li><button type="button" class="step-tab is-active" data-goto="1" aria-current="step"><span class="step-num">1</span><span class="step-label" data-i18n="tab1">Car</span></button></li>
+      <li><button type="button" class="step-tab" data-goto="2"><span class="step-num">2</span><span class="step-label" data-i18n="tab2">Photos</span></button></li>
+      <li><button type="button" class="step-tab" data-goto="3"><span class="step-num">3</span><span class="step-label" data-i18n="tab3">Damage</span></button></li>
+      <li><button type="button" class="step-tab" data-goto="4"><span class="step-num">4</span><span class="step-label" data-i18n="tab4">Report</span></button></li>
     </ol>
     <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
   </nav>
@@ -39,119 +50,129 @@
 
   <!-- ===== STEP 1 ===== -->
   <section class="panel step" id="step1" data-step="1">
-    <h1 class="h-step">Step 1 of 4 — Your car</h1>
-    <p class="lede">Fill this in before you drive away. It takes about 30 seconds.</p>
+    <h1 class="h-step" data-i18n="s1_title">Step 1 of 4 — Your car</h1>
+    <p class="lede" data-i18n="s1_lede">Fill this in before you drive away. It takes about 30 seconds.</p>
 
     <form id="tripForm" novalidate>
       <label class="field">
-        <span class="label">Rental company</span>
+        <span class="label" data-i18n="company_l">Rental company</span>
         <input type="text" id="company" name="company" autocomplete="off" placeholder="Hertz, Sixt, Avis…" enterkeyhint="next">
       </label>
 
       <label class="field">
-        <span class="label">Licence plate <em class="req">needed</em></span>
+        <span class="label"><span data-i18n="plate_l">Licence plate</span> <em class="req" data-i18n="plate_req">needed</em></span>
         <input type="text" id="plate" name="plate" class="mono up" autocomplete="off" placeholder="AB 123 CD" enterkeyhint="next" required>
-        <span class="hint">You will find it on the key tag or the car itself.</span>
+        <span class="hint" data-i18n="plate_hint">You will find it on the key tag or the car itself.</span>
       </label>
 
       <label class="field">
-        <span class="label">Make and model</span>
+        <span class="label" data-i18n="model_l">Make and model</span>
         <input type="text" id="model" name="model" autocomplete="off" placeholder="VW Golf" enterkeyhint="next">
       </label>
 
-      <div class="row">
-        <label class="field">
-          <span class="label">Odometer (km or miles)</span>
-          <input type="text" inputmode="numeric" id="odometer" name="odometer" class="mono" autocomplete="off" placeholder="42500">
-        </label>
-
-        <label class="field">
-          <span class="label">Fuel level</span>
-          <select id="fuel" name="fuel">
-            <option value="Full">Full</option>
-            <option value="3/4">3/4</option>
-            <option value="1/2">1/2</option>
-            <option value="1/4">1/4</option>
-            <option value="Empty">Empty</option>
-            <option value="Electric — 100%">Electric — 100%</option>
-            <option value="Electric — see photo">Electric — see photo</option>
-          </select>
-        </label>
-      </div>
+      <label class="field">
+        <span class="label" data-i18n="odo_l">Odometer (km or miles)</span>
+        <input type="text" inputmode="numeric" id="odometer" name="odometer" class="mono" autocomplete="off" placeholder="42500">
+        <span class="hint" data-i18n="odo_hint">Photo 8 shows it too, so an exact number here is optional.</span>
+      </label>
 
       <fieldset class="field">
-        <legend class="label">When are you checking the car?</legend>
-        <div class="choice-row" role="radiogroup" aria-label="Pickup or return">
+        <legend class="label" data-i18n="fuel_l">Fuel level</legend>
+        <div class="seg-row" id="fuelRow" role="radiogroup">
+          <label class="seg"><input type="radio" name="fuel" value="Full" checked><span data-i18n="fuel_full">Full</span></label>
+          <label class="seg"><input type="radio" name="fuel" value="3/4"><span>3/4</span></label>
+          <label class="seg"><input type="radio" name="fuel" value="1/2"><span>1/2</span></label>
+          <label class="seg"><input type="radio" name="fuel" value="1/4"><span>1/4</span></label>
+          <label class="seg"><input type="radio" name="fuel" value="Empty"><span data-i18n="fuel_empty">Empty</span></label>
+        </div>
+        <span class="hint" data-i18n="fuel_hint">Electric car? Photo 8 of the dashboard shows the charge.</span>
+      </fieldset>
+
+      <fieldset class="field">
+        <legend class="label" data-i18n="phase_l">When are you checking the car?</legend>
+        <div class="choice-row" role="radiogroup">
           <label class="choice">
             <input type="radio" name="phase" value="Pickup" checked>
-            <span>Pickup<small>Before I drive away</small></span>
+            <span><span data-i18n="pickup">Pickup</span><small data-i18n="pickup_sub">Before I drive away</small></span>
           </label>
           <label class="choice">
             <input type="radio" name="phase" value="Return">
-            <span>Return<small>Giving the car back</small></span>
+            <span><span data-i18n="return">Return</span><small data-i18n="return_sub">Giving the car back</small></span>
           </label>
         </div>
       </fieldset>
 
+      <div class="cmp-box is-hidden" id="compareBox">
+        <strong data-i18n="cmp_t">Compare with your pickup report</strong>
+        <p class="hint" data-i18n="cmp_hint">Load the pickup file you saved when you collected the car. Old damage shows in grey, so only new damage is in question.</p>
+        <input type="file" id="pickupFile" accept=".json,application/json">
+        <label class="btn btn-ghost" for="pickupFile" id="pickupFileBtn" data-i18n="cmp_btn">Load pickup file</label>
+        <p class="geo-status mono" id="compareStatus"></p>
+      </div>
+
       <div class="geo-box">
         <div>
-          <strong>Add the location?</strong>
-          <p class="hint">This proves where the car was. It is asked once and stays on your phone.</p>
+          <strong data-i18n="geo_t">Add the location?</strong>
+          <p class="hint" data-i18n="geo_hint">This proves where the car was. It is asked once and stays on your phone.</p>
           <p class="geo-status mono" id="geoStatus">Location not recorded</p>
         </div>
-        <button type="button" class="btn btn-ghost" id="geoBtn">Use my location</button>
+        <button type="button" class="btn btn-ghost" id="geoBtn" data-i18n="geo_btn">Use my location</button>
       </div>
     </form>
 
     <div class="actions">
-      <button type="button" class="btn btn-primary" data-goto="2">Next: take photos</button>
+      <button type="button" class="btn btn-primary" data-goto="2" data-i18n="next_photos">Next: take photos</button>
     </div>
   </section>
 
   <!-- ===== STEP 2 ===== -->
   <section class="panel step is-hidden" id="step2" data-step="2">
-    <h1 class="h-step">Step 2 of 4 — 8 photos</h1>
-    <p class="lede">Walk around the car in one direction. Stand about two steps back. Tap each box in order.</p>
+    <h1 class="h-step" data-i18n="s2_title">Step 2 of 4 — 8 photos</h1>
+    <p class="lede" data-i18n="s2_lede">Walk around the car in one direction. Stand about two steps back. Tap each box in order.</p>
 
     <div class="counter-bar">
       <span class="mono big" id="shotCount">0 / 8</span>
-      <span class="hint">photos taken</span>
+      <span class="hint" data-i18n="photos_taken">photos taken</span>
     </div>
 
     <ol class="shot-list" id="shotList"></ol>
 
+    <div class="video-box" id="videoBox">
+      <strong data-i18n="vid_t">Walk-around video (optional)</strong>
+      <p class="hint" data-i18n="vid_hint">30 seconds around the car in one take. Video is even harder to argue with than photos. It is saved as its own file, next to the PDF.</p>
+      <div class="video-row">
+        <input type="file" id="videoInput" accept="video/*" capture="environment">
+        <label class="btn btn-ghost" for="videoInput" id="videoBtn" data-i18n="vid_btn">Record video</label>
+        <span class="geo-status mono" id="videoStatus"></span>
+        <button type="button" class="btn btn-ghost is-hidden" id="videoRemove" data-i18n="vid_rm">Remove</button>
+      </div>
+    </div>
+
     <div class="actions">
-      <button type="button" class="btn btn-ghost" data-goto="1">Back</button>
-      <button type="button" class="btn btn-primary" data-goto="3">Next: mark damage</button>
+      <button type="button" class="btn btn-ghost" data-goto="1" data-i18n="back">Back</button>
+      <button type="button" class="btn btn-primary" data-goto="3" data-i18n="next_damage">Next: mark damage</button>
     </div>
   </section>
 
   <!-- ===== STEP 3 ===== -->
   <section class="panel step is-hidden" id="step3" data-step="3">
-    <h1 class="h-step">Step 3 of 4 — Mark the damage</h1>
-    <p class="lede">Tap the car where you see a scratch, dent or crack. Add one mark for each problem. If the car is perfect, skip this step.</p>
+    <h1 class="h-step" data-i18n="s3_title">Step 3 of 4 — Mark the damage</h1>
+    <p class="lede" data-i18n="s3_lede">Tap the car where you see a scratch, dent or crack. Add one mark for each problem. If the car is perfect, skip this step.</p>
 
     <div class="diagram-box">
       <svg id="carSvg" viewBox="0 0 320 620" role="img" aria-label="Top view of a car. Tap a spot to add a damage mark." tabindex="0">
         <g id="carArt" pointer-events="none">
-          <!-- body -->
           <path d="M160 18c34 0 58 20 66 52 8 30 12 74 12 128v212c0 60-4 108-12 138-8 32-32 52-66 52s-58-20-66-52c-8-30-12-78-12-138V198c0-54 4-98 12-128 8-32 32-52 66-52z"
                 fill="#1E2530" stroke="#5C6878" stroke-width="3"/>
-          <!-- windscreen -->
           <path d="M108 168c14-8 90-8 104 0l12 40c-40-10-88-10-128 0z" fill="#2A323E" stroke="#5C6878" stroke-width="2"/>
-          <!-- rear window -->
           <path d="M104 452c40 10 72 10 112 0l-12 40c-30 8-58 8-88 0z" fill="#2A323E" stroke="#5C6878" stroke-width="2"/>
-          <!-- roof -->
           <rect x="98" y="222" width="124" height="212" rx="26" fill="#232B36" stroke="#5C6878" stroke-width="2"/>
-          <!-- mirrors -->
           <rect x="72" y="212" width="26" height="16" rx="6" fill="#2A323E" stroke="#5C6878" stroke-width="2"/>
           <rect x="222" y="212" width="26" height="16" rx="6" fill="#2A323E" stroke="#5C6878" stroke-width="2"/>
-          <!-- wheels -->
           <rect x="76" y="150" width="18" height="62" rx="7" fill="#11161D" stroke="#5C6878" stroke-width="2"/>
           <rect x="226" y="150" width="18" height="62" rx="7" fill="#11161D" stroke="#5C6878" stroke-width="2"/>
           <rect x="76" y="418" width="18" height="62" rx="7" fill="#11161D" stroke="#5C6878" stroke-width="2"/>
           <rect x="226" y="418" width="18" height="62" rx="7" fill="#11161D" stroke="#5C6878" stroke-width="2"/>
-          <!-- lights -->
           <rect x="112" y="42" width="34" height="14" rx="6" fill="#3A4452"/>
           <rect x="174" y="42" width="34" height="14" rx="6" fill="#3A4452"/>
           <rect x="112" y="558" width="34" height="14" rx="6" fill="#4A2A2A"/>
@@ -159,84 +180,103 @@
           <text x="160" y="98" text-anchor="middle" fill="#7C8899" font-size="17" font-family="monospace" letter-spacing="2">FRONT</text>
           <text x="160" y="536" text-anchor="middle" fill="#7C8899" font-size="17" font-family="monospace" letter-spacing="2">REAR</text>
         </g>
+        <g id="pickupLayer" pointer-events="none"></g>
         <g id="pinLayer" pointer-events="none"></g>
       </svg>
-      <p class="hint centred">Tap the car above to add a mark.</p>
+      <p class="hint centred" data-i18n="svg_hint">Tap the car above to add a mark.</p>
+      <p class="hint centred is-hidden" id="pickupLegend"></p>
     </div>
 
     <ol class="mark-list" id="markList"></ol>
-    <p class="empty-note" id="markEmpty">No damage marked yet.</p>
+    <p class="empty-note" id="markEmpty" data-i18n="no_marks">No damage marked yet.</p>
 
     <div class="actions">
-      <button type="button" class="btn btn-ghost" data-goto="2">Back</button>
-      <button type="button" class="btn btn-primary" data-goto="4">Next: get my report</button>
+      <button type="button" class="btn btn-ghost" data-goto="2" data-i18n="back">Back</button>
+      <button type="button" class="btn btn-primary" data-goto="4" data-i18n="next_report">Next: get my report</button>
     </div>
   </section>
 
   <!-- ===== STEP 4 ===== -->
   <section class="panel step is-hidden" id="step4" data-step="4">
-    <h1 class="h-step">Step 4 of 4 — Your report</h1>
-    <p class="lede">Check the summary, then download the PDF. Email it to yourself so you always have a copy.</p>
+    <h1 class="h-step" data-i18n="s4_title">Step 4 of 4 — Your report</h1>
+    <p class="lede" data-i18n="s4_lede">Check the summary, then download the PDF. Email it to yourself so you always have a copy.</p>
 
     <dl class="summary" id="summary"></dl>
 
     <div class="warn-box is-hidden" id="photoWarn">
       <p class="warn-title" id="photoWarnTitle"></p>
       <p class="warn-text" id="photoWarnText"></p>
-      <button type="button" class="btn btn-primary" data-goto="2" id="photoWarnBtn">Take the car photos</button>
+      <button type="button" class="btn btn-primary" data-goto="2" id="photoWarnBtn"></button>
     </div>
 
     <div class="actions">
-      <button type="button" class="btn btn-primary btn-big" id="downloadBtn">Download PDF report</button>
+      <button type="button" class="btn btn-primary btn-big" id="downloadBtn" data-i18n="dl_btn">Download PDF report</button>
     </div>
     <p class="pdf-status mono" id="pdfStatus" role="status" aria-live="polite"></p>
+    <p class="hint is-hidden" id="pdfEnNote" data-i18n="pdf_en_note">The PDF itself is written in English, so rental companies anywhere can read it.</p>
+
+    <div class="extra-actions">
+      <button type="button" class="btn btn-ghost is-hidden" id="shareBtn" data-i18n="share_btn">Share the PDF</button>
+      <button type="button" class="btn btn-ghost is-hidden" id="videoDlBtn" data-i18n="vid_dl">Download video</button>
+      <button type="button" class="btn btn-ghost is-hidden" id="pickupSaveBtn" data-i18n="save_pickup">Save pickup file</button>
+      <button type="button" class="btn btn-ghost" id="disputeBtn" data-i18n="dispute_btn">Copy dispute email text</button>
+    </div>
+    <p class="hint" id="pickupSaveHint" data-i18n="save_pickup_hint">The pickup file is a small extra file. Load it at return and only new damage is in question.</p>
+    <p class="geo-status mono" id="extraStatus"></p>
 
     <p class="disclaimer">
-      <strong>Please read.</strong> This report is your own documentation of the car. It is not an official
+      <strong data-i18n="disc_t">Please read.</strong> <span data-i18n="disc_x">This report is your own documentation of the car. It is not an official
       document and it does not automatically bind the rental company or anyone else. It is evidence you made
-      yourself, with dates and photos, to support your side if there is a dispute.
+      yourself, with dates and photos, to support your side if there is a dispute.</span>
     </p>
 
-    <div class="privacy-note">
+    <div class="privacy-note" data-i18n="priv">
       Everything stays on your phone. Your photos are never uploaded and nothing is saved after you close this page.
     </div>
 
     <div class="actions">
-      <button type="button" class="btn btn-ghost" data-goto="3">Back</button>
-      <button type="button" class="btn btn-danger-ghost" id="resetBtn">Start a new car</button>
+      <button type="button" class="btn btn-ghost" data-goto="3" data-i18n="back">Back</button>
+      <button type="button" class="btn btn-danger-ghost" id="resetBtn" data-i18n="reset_btn">Start a new car</button>
     </div>
   </section>
 
 </main>
 
+<div class="install-bar is-hidden" id="installBar">
+  <span data-i18n="install_t">Add DingProof to your home screen so it opens instantly, even with no signal.</span>
+  <button type="button" class="btn btn-primary" id="installBtn" data-i18n="install_btn">Add to home screen</button>
+  <button type="button" class="install-dismiss" id="installDismiss" aria-label="Dismiss">×</button>
+</div>
+
 <footer class="wrap site-footer">
-  <p>DingProof is free and runs entirely in your browser. No accounts, no tracking, no uploads.</p>
+  <p data-i18n="foot">DingProof is free and runs entirely in your browser. No accounts, no tracking, no uploads.</p>
 </footer>
 
 <!-- ===== DAMAGE DIALOG ===== -->
 <div class="modal-backdrop is-hidden" id="markModal" role="dialog" aria-modal="true" aria-labelledby="markModalTitle">
   <div class="modal">
-    <h2 id="markModalTitle">What did you find here?</h2>
+    <h2 id="markModalTitle" data-i18n="dlg_t">What did you find here?</h2>
     <div class="type-grid" id="typeGrid" role="radiogroup" aria-label="Type of damage"></div>
     <label class="field">
-      <span class="label">Note (optional)</span>
-      <input type="text" id="markNote" maxlength="120" placeholder="e.g. deep scratch, about 10 cm" autocomplete="off">
+      <span class="label" data-i18n="note_l">Note (optional)</span>
+      <input type="text" id="markNote" maxlength="120" autocomplete="off">
+      <span class="hint is-hidden" id="noteLatinHint" data-i18n="note_latin">Tip: a note in English shows best in the PDF.</span>
     </label>
 
     <div class="field">
-      <span class="label">Close-up photo (optional)</span>
-      <p class="hint">A photo of this exact spot. It goes in the report on its own page.</p>
+      <span class="label" data-i18n="cu_l">Close-up photo (optional)</span>
+      <p class="hint" data-i18n="cu_hint">A photo of this exact spot. It goes in the report on its own page.</p>
       <div class="photo-pick">
         <img id="markPhotoThumb" class="photo-pick-thumb is-hidden" alt="">
         <input type="file" id="markPhotoInput" accept="image/*" capture="environment">
-        <label class="btn btn-ghost" for="markPhotoInput" id="markPhotoBtn">Take close-up</label>
-        <button type="button" class="btn btn-ghost is-hidden" id="markPhotoRemove">Remove photo</button>
+        <label class="btn btn-ghost" for="markPhotoInput" id="markPhotoBtn" data-i18n="cu_take">Take close-up</label>
+        <button type="button" class="btn btn-ghost is-hidden" id="markPhotoRemove" data-i18n="cu_rm">Remove photo</button>
       </div>
     </div>
 
     <div class="actions">
-      <button type="button" class="btn btn-ghost" id="markCancel">Cancel</button>
-      <button type="button" class="btn btn-primary" id="markSave">Add mark</button>
+      <button type="button" class="btn btn-ghost" id="markCancel" data-i18n="cancel">Cancel</button>
+      <button type="button" class="btn btn-primary" id="markSave" data-i18n="addmark">Add mark</button>
     </div>
   </div>
 </div>

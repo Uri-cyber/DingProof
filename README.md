@@ -19,24 +19,35 @@ email to yourself and send to the rental company.
 
 ## What it does
 
-1. **Trip details** — rental company, licence plate, make and model, odometer, fuel level, and whether
-   this is a pickup or a return.
+1. **Trip details** — rental company, licence plate, make and model, odometer, fuel level (as
+   quick buttons), and whether this is a pickup or a return.
 2. **8 guided photos** — front, front right corner, right side, rear right corner, rear, rear left
    corner, left side, and a final shot for the roof, glass, interior and odometer. Your phone camera
-   opens straight from the page.
+   opens straight from the page. Each photo gets a quick brightness/sharpness check, so a shot taken
+   in the dark or badly blurred is flagged for a retake before it ends up in the report.
+   An optional 30-second walk-around **video** can be attached too — it is saved as its own file
+   next to the PDF, since video can't live inside a PDF page.
 3. **Damage diagram** — tap a top-down car outline anywhere you see a problem, pick the type
    (scratch, dent, wheel scuff, chip or crack, missing part, stain or tear, other) and add a note.
    Each mark becomes a numbered red pin plus a numbered row in a list. You can also attach a
    **close-up photo** to any mark, either while adding it or later from the list.
-4. **PDF report** — a summary page, the diagram with its pins, one page per damage close-up, then
+4. **Return vs. pickup comparison** — at pickup, save a small pickup file alongside the PDF. At
+   return, load that file back in: its old damage marks show as grey pins (P1, P2, …) on the
+   diagram, so only new damage from this inspection needs explaining.
+5. **PDF report** — a summary page, the diagram with its pins, one page per damage close-up, then
    one page per walk-around photo. Every photo page is landscape, with the picture large on the
    left and a panel beside it giving the photo's title and its details: position, what the shot
    should show (or the damage type and your note), the plate, whether it was pickup or return,
    and the time it was taken. Every timestamp is recorded in both your local time and ISO 8601
-   UTC. The file is named `DingProof_PLATE_YYYY-MM-DD.pdf`.
-
-Location is optional. If you allow it, latitude, longitude and accuracy appear on the summary page.
-If you refuse, the report says "Location not recorded" and nothing is blocked.
+   UTC. The file is named `DingProof_PLATE_YYYY-MM-DD.pdf`. The PDF itself is always written in
+   English, so any rental company can read it, even if you used the app in another language.
+6. **Dispute email text** — one button copies a ready-to-paste English email to your clipboard,
+   naming the report, the dates, and what it includes, so you have a starting point for a dispute.
+7. **Five languages** — English, Hebrew (right-to-left), German, French and Spanish, switched with
+   one tap in the header.
+8. **Works like an app** — Add DingProof to your phone's home screen (a banner offers this
+   automatically where supported) and it opens instantly next time, even with no signal, because
+   the page and its styles are cached on first visit.
 
 ## Privacy
 
@@ -79,7 +90,10 @@ Branch: `main` / `/ (root)` → Save.** After a minute or two the site is live a
 | --- | --- |
 | `index.html` | The whole page: four steps, the car diagram, the damage dialog |
 | `styles.css` | Dark, high-contrast styling built for bright sun and dim garages |
-| `app.js` | All the logic: photo resizing, diagram pins, PDF export |
+| `app.js` | All the logic: photo resizing, diagram pins, PDF export, translations |
+| `manifest.webmanifest` | Lets the browser offer "Add to home screen" |
+| `sw.js` | Service worker: caches the app shell for instant, offline loading |
+| `icon-192.png`, `icon-512.png`, `icon-maskable-512.png` | Home screen icons |
 | `.nojekyll` | Makes GitHub Pages serve the files unprocessed |
 | `LICENSE` | MIT |
 
