@@ -78,19 +78,20 @@
 
       <fieldset class="field">
         <legend class="label" data-i18n="fuel_l">Fuel level</legend>
-        <div class="seg-row" id="fuelRow" role="radiogroup">
+        <div class="seg-row" id="fuelRow" role="radiogroup" aria-label="Fuel level">
           <label class="seg"><input type="radio" name="fuel" value="Full" checked><span data-i18n="fuel_full">Full</span></label>
           <label class="seg"><input type="radio" name="fuel" value="3/4"><span>3/4</span></label>
           <label class="seg"><input type="radio" name="fuel" value="1/2"><span>1/2</span></label>
           <label class="seg"><input type="radio" name="fuel" value="1/4"><span>1/4</span></label>
           <label class="seg"><input type="radio" name="fuel" value="Empty"><span data-i18n="fuel_empty">Empty</span></label>
+          <label class="seg"><input type="radio" name="fuel" value="Electric"><span data-i18n="fuel_electric">Electric</span></label>
         </div>
         <span class="hint" data-i18n="fuel_hint">Electric car? Photo 8 of the dashboard shows the charge.</span>
       </fieldset>
 
       <fieldset class="field">
         <legend class="label" data-i18n="phase_l">When are you checking the car?</legend>
-        <div class="choice-row" role="radiogroup">
+        <div class="choice-row" role="radiogroup" aria-label="Pickup or return">
           <label class="choice">
             <input type="radio" name="phase" value="Pickup" checked>
             <span><span data-i18n="pickup">Pickup</span><small data-i18n="pickup_sub">Before I drive away</small></span>

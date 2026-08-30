@@ -60,7 +60,7 @@
     odo_l: 'Odometer (km or miles)',
     odo_hint: 'Photo 8 shows it too, so an exact number here is optional.',
     fuel_l: 'Fuel level', fuel_full: 'Full', fuel_empty: 'Empty',
-    fuel_hint: 'Electric car? Photo 8 of the dashboard shows the charge.',
+    fuel_electric: 'Electric', fuel_hint: 'Pick Electric if it runs on a battery. Photo 8 of the dashboard shows the exact charge.',
     phase_l: 'When are you checking the car?',
     pickup: 'Pickup', pickup_sub: 'Before I drive away',
     return: 'Return', return_sub: 'Giving the car back',
@@ -133,7 +133,8 @@
     st_savefail: 'The file could not be saved on this device.',
     st_nolib: 'The PDF tool did not load. Check your connection and reload the page.',
     st_cancel: 'Download cancelled. Tap the button to try again.',
-    st_big: 'This file is too big to save here. A shorter video will fit.',
+    st_big: 'This file is too big to save here. Try again with fewer photos.',
+    st_retry: 'Please wait a moment, then tap the button again.',
     st_wait: 'Confirm the download when your browser asks…',
     disc_t: 'Please read.',
     disc_x: 'This report is your own documentation of the car. It is not an official document and it does not automatically bind the rental company or anyone else. It is evidence you made yourself, with dates and photos, to support your side if there is a dispute.',
@@ -159,7 +160,7 @@
     odo_l: 'מד אוץ (ק"מ או מייל)',
     odo_hint: 'מופיע גם בתמונה 8, אז מספר מדויק כאן הוא רשות.',
     fuel_l: 'מפלס דלק', fuel_full: 'מלא', fuel_empty: 'ריק',
-    fuel_hint: 'רכב חשמלי? תמונה 8 של הלוח מציגה את הטעינה.',
+    fuel_electric: 'חשמלי', fuel_hint: 'בחרו חשמלי אם הרכב פועל על סוללה. תמונה 8 של הלוח מציגה את הטעינה המדויקת.',
     phase_l: 'מתי אתם בודקים את הרכב?',
     pickup: 'איסוף', pickup_sub: 'לפני שאני נוסע',
     return: 'החזרה', return_sub: 'מחזירים את הרכב',
@@ -238,7 +239,8 @@
     st_savefail: 'לא ניתן לשמור את הקובץ במכשיר הזה.',
     st_nolib: 'כלי ה-PDF לא נטען. בדקו חיבור ורעננו את הדף.',
     st_cancel: 'ההורדה בוטלה. לחצו שוב כדי לנסות.',
-    st_big: 'הקובץ גדול מדי לשמירה כאן. סרטון קצר יותר יתאים.',
+    st_big: 'הקובץ גדול מדי לשמירה כאן. נסו שוב עם פחות תמונות.',
+    st_retry: 'המתינו רגע ולחצו שוב.',
     st_wait: 'אשרו את ההורדה כשהדפדפן ישאל…',
     disc_t: 'חשוב לקרוא.',
     disc_x: 'הדו"ח הזה הוא התיעוד האישי שלכם. הוא אינו מסמך רשמי ואינו מחייב אוטומטית את חברת ההשכרה. אלו ראיות שיצרתם בעצמכם, עם תאריכים ותמונות, לתמוך בצד שלכם אם תהיה מחלוקת.',
@@ -264,7 +266,7 @@
     odo_l: 'Kilometerstand',
     odo_hint: 'Auch auf Foto 8 zu sehen, eine genaue Zahl hier ist optional.',
     fuel_l: 'Tankstand', fuel_full: 'Voll', fuel_empty: 'Leer',
-    fuel_hint: 'Elektroauto? Foto 8 vom Display zeigt den Ladestand.',
+    fuel_electric: 'Elektrisch', fuel_hint: 'Wählen Sie Elektrisch, wenn das Auto mit Batterie fährt. Foto 8 vom Display zeigt den genauen Ladestand.',
     phase_l: 'Wann prüfen Sie das Auto?',
     pickup: 'Abholung', pickup_sub: 'Vor der Abfahrt',
     return: 'Rückgabe', return_sub: 'Auto wird zurückgegeben',
@@ -343,7 +345,8 @@
     st_savefail: 'Die Datei konnte auf diesem Gerät nicht gespeichert werden.',
     st_nolib: 'Das PDF-Werkzeug wurde nicht geladen. Verbindung prüfen und Seite neu laden.',
     st_cancel: 'Download abgebrochen. Zum erneuten Versuch tippen.',
-    st_big: 'Diese Datei ist zu groß zum Speichern. Ein kürzeres Video passt.',
+    st_big: 'Diese Datei ist zu groß zum Speichern. Versuchen Sie es mit weniger Fotos erneut.',
+    st_retry: 'Bitte kurz warten und dann erneut tippen.',
     st_wait: 'Download im Browser bestätigen…',
     disc_t: 'Bitte lesen.',
     disc_x: 'Dieser Bericht ist Ihre eigene Dokumentation des Autos. Er ist kein offizielles Dokument und bindet die Mietwagenfirma oder andere nicht automatisch. Es ist ein von Ihnen selbst erstellter Beweis mit Daten und Fotos, der Ihre Seite bei einem Streitfall unterstützt.',
@@ -369,7 +372,7 @@
     odo_l: 'Kilométrage',
     odo_hint: 'Visible aussi sur la photo 8, un chiffre exact ici est facultatif.',
     fuel_l: 'Niveau de carburant', fuel_full: 'Plein', fuel_empty: 'Vide',
-    fuel_hint: 'Voiture électrique ? La photo 8 du tableau de bord montre la charge.',
+    fuel_electric: 'Électrique', fuel_hint: 'Choisissez Électrique si la voiture roule sur batterie. La photo 8 du tableau de bord montre la charge exacte.',
     phase_l: 'Quand vérifiez-vous la voiture ?',
     pickup: 'Prise en charge', pickup_sub: 'Avant de partir',
     return: 'Retour', return_sub: 'Restitution de la voiture',
@@ -448,7 +451,8 @@
     st_savefail: 'Le fichier n\'a pas pu être enregistré sur cet appareil.',
     st_nolib: 'L\'outil PDF ne s\'est pas chargé. Vérifiez la connexion et rechargez la page.',
     st_cancel: 'Téléchargement annulé. Touchez à nouveau pour réessayer.',
-    st_big: 'Ce fichier est trop volumineux pour être enregistré ici. Une vidéo plus courte conviendra.',
+    st_big: 'Ce fichier est trop volumineux pour être enregistré ici. Réessayez avec moins de photos.',
+    st_retry: 'Veuillez patienter un instant, puis toucher à nouveau.',
     st_wait: 'Confirmez le téléchargement demandé par le navigateur…',
     disc_t: 'À lire.',
     disc_x: 'Ce rapport est votre propre documentation de la voiture. Ce n\'est pas un document officiel et il n\'engage pas automatiquement la société de location ou qui que ce soit d\'autre. C\'est une preuve que vous avez créée vous-même, avec dates et photos, pour appuyer votre position en cas de litige.',
@@ -474,7 +478,7 @@
     odo_l: 'Kilometraje',
     odo_hint: 'También se ve en la foto 8, un número exacto aquí es opcional.',
     fuel_l: 'Nivel de combustible', fuel_full: 'Lleno', fuel_empty: 'Vacío',
-    fuel_hint: '¿Coche eléctrico? La foto 8 del salpicadero muestra la carga.',
+    fuel_electric: 'Eléctrico', fuel_hint: 'Elige Eléctrico si el coche funciona con batería. La foto 8 del salpicadero muestra la carga exacta.',
     phase_l: '¿Cuándo revisas el coche?',
     pickup: 'Recogida', pickup_sub: 'Antes de salir',
     return: 'Devolución', return_sub: 'Al devolver el coche',
@@ -553,7 +557,8 @@
     st_savefail: 'No se pudo guardar el archivo en este dispositivo.',
     st_nolib: 'La herramienta de PDF no se cargó. Revisa la conexión y recarga la página.',
     st_cancel: 'Descarga cancelada. Toca de nuevo para intentarlo.',
-    st_big: 'Este archivo es demasiado grande para guardarlo aquí. Un vídeo más corto sí cabrá.',
+    st_big: 'Este archivo es demasiado grande para guardarlo aquí. Inténtalo de nuevo con menos fotos.',
+    st_retry: 'Espera un momento y vuelve a tocar el botón.',
     st_wait: 'Confirma la descarga cuando lo pida el navegador…',
     disc_t: 'Por favor, lee esto.',
     disc_x: 'Este informe es tu propia documentación del coche. No es un documento oficial y no obliga automáticamente a la empresa de alquiler ni a nadie más. Es una prueba que has creado tú mismo, con fechas y fotos, para respaldar tu versión si hay una disputa.',
@@ -1162,7 +1167,7 @@
   // A note in a non-Latin script prints fine in the app but the PDF text
   // layer is Latin-only, so flag it gently rather than fail silently later.
   $('#markNote').addEventListener('input', function () {
-    $('#noteLatinHint').classList.toggle('is-hidden', isLatin($('#markNote').value) || lang === 'en');
+    $('#noteLatinHint').classList.toggle('is-hidden', isLatin($('#markNote').value));
   });
 
   $('#markSave').addEventListener('click', function () {
@@ -1270,7 +1275,7 @@
       rm.type = 'button';
       rm.className = 'mark-remove';
       rm.textContent = t('remove');
-      rm.setAttribute('aria-label', t('remove') + ' ' + (i + 1));
+      rm.setAttribute('aria-label', t('remove') + ' ' + (i + 1) + ', ' + t('dt' + (typeIndex[m.type] || 0)));
       rm.addEventListener('click', function () {
         state.marks = state.marks.filter(function (x) { return x.id !== m.id; });
         renderMarks();
@@ -1716,8 +1721,6 @@
      Download the PDF
   --------------------------------------------------------------- */
 
-  var lastPdfDoc = null, lastPdfName = null;
-
   $('#downloadBtn').addEventListener('click', function () {
     var btn = $('#downloadBtn');
     var status = $('#pdfStatus');
@@ -1733,8 +1736,6 @@
           status.textContent = err.message;
           return;
         }
-        lastPdfDoc = doc; lastPdfName = name;
-
         function localSave() {
           try {
             doc.save(name);
@@ -1756,7 +1757,7 @@
           status.className = 'pdf-status mono is-error';
           if (code === 'declined') { status.textContent = t('st_cancel'); }
           else if (code === 'too_large') { status.textContent = t('st_big'); }
-          else if (code === 'rate_limited') { status.textContent = t('st_wait'); }
+          else if (code === 'rate_limited') { status.textContent = t('st_retry'); }
           else { localSave(); }
         });
         renderSummary();
