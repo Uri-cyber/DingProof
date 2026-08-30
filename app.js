@@ -49,6 +49,9 @@
 
   STR.en = {
     skip: 'Skip to content',
+    aria_lang: 'Language', aria_progress: 'Progress', aria_fuel: 'Fuel level',
+    aria_phase: 'Pickup or return', aria_type: 'Type of damage', aria_dismiss: 'Dismiss',
+    aria_car: 'Top view of a car. Tap a spot to add a damage mark. Keyboard: arrow keys move the cursor, Enter or Space confirms.',
     tagline: 'Two minutes now. Evidence forever.',
     tab1: 'Car', tab2: 'Photos', tab3: 'Damage', tab4: 'Report',
     s1_title: 'Step 1 of 4 — Your car',
@@ -57,6 +60,7 @@
     plate_l: 'Licence plate', plate_req: 'needed',
     plate_hint: 'You will find it on the key tag or the car itself.',
     plate_error: 'Enter the licence plate before continuing.',
+    plate_latin: 'Use English letters and numbers — the PDF and filename can\'t show other scripts.',
     model_l: 'Make and model',
     odo_l: 'Odometer (km or miles)',
     odo_hint: 'Photo 8 shows it too, so an exact number here is optional.',
@@ -96,12 +100,14 @@
     svg_hint: 'Tap the car above to add a mark.',
     pk_legend: 'Grey pins P1–P{n}: damage already recorded at pickup.',
     no_marks: 'No damage marked yet.', remove: 'Remove',
+    note_none: 'No note added', close_btn: 'Close',
     add_cu: 'Add close-up photo', replace: 'Replace',
     dlg_t: 'What did you find here?',
     dt0: 'Scratch', dt1: 'Dent', dt2: 'Wheel scuff', dt3: 'Chip or crack',
     dt4: 'Missing part', dt5: 'Stain or tear', dt6: 'Other',
     note_l: 'Note (optional)', note_ph: 'e.g. deep scratch, about 10 cm',
     note_latin: 'Tip: a note in English shows best in the PDF.',
+    field_latin: 'This shows best in English letters and numbers — other scripts may not display correctly in the PDF.',
     cu_l: 'Close-up photo (optional)',
     cu_hint: 'A photo of this exact spot. It goes in the report on its own page.',
     cu_take: 'Take close-up', cu_re: 'Retake close-up', cu_rm: 'Remove photo',
@@ -125,6 +131,7 @@
     warnN_b: 'Take the missing photos',
     dl_btn: 'Download PDF report',
     share_btn: 'Share the PDF', vid_dl: 'Download video',
+    share_ready_btn: 'Ready — tap to share',
     save_pickup: 'Save pickup file',
     save_pickup_hint: 'The pickup file is a small extra file. Load it at return and only new damage is in question.',
     dispute_btn: 'Copy dispute email text',
@@ -134,6 +141,7 @@
     st_saved: 'Saved as {name}',
     st_savefail: 'The file could not be saved on this device.',
     st_nolib: 'The PDF tool did not load. Check your connection and reload the page.',
+    st_pdf_fail: 'Something went wrong building the PDF. Your photos and marks are still here — please try again.',
     st_cancel: 'Download cancelled. Tap the button to try again.',
     st_big: 'This file is too big to save here. Try again with fewer photos.',
     st_retry: 'Please wait a moment, then tap the button again.',
@@ -151,6 +159,9 @@
 
   STR.he = {
     skip: 'דלג לתוכן',
+    aria_lang: 'שפה', aria_progress: 'התקדמות', aria_fuel: 'מפלס דלק',
+    aria_phase: 'איסוף או החזרה', aria_type: 'סוג הנזק', aria_dismiss: 'סגירה',
+    aria_car: 'מבט מלמעלה על רכב. הקישו על נקודה כדי להוסיף סימון נזק. מקלדת: מקשי החצים מזיזים את הסמן, Enter או רווח מאשרים.',
     tagline: 'שתי דקות עכשיו. ראיות לתמיד.',
     tab1: 'רכב', tab2: 'תמונות', tab3: 'נזקים', tab4: 'דו"ח',
     s1_title: 'שלב 1 מתוך 4 — הרכב שלך',
@@ -159,6 +170,7 @@
     plate_l: 'מספר רישוי', plate_req: 'חובה',
     plate_hint: 'מופיע על המחזיק של המפתח או על הרכב עצמו.',
     plate_error: 'הזינו מספר רישוי לפני שממשיכים.',
+    plate_latin: 'השתמשו באותיות ומספרים באנגלית — ה-PDF ושם הקובץ לא יכולים להציג כתבים אחרים.',
     model_l: 'יצרן ודגם',
     odo_l: 'מד אוץ (ק"מ או מייל)',
     odo_hint: 'מופיע גם בתמונה 8, אז מספר מדויק כאן הוא רשות.',
@@ -204,12 +216,14 @@
     svg_hint: 'לחצו על הרכב כדי להוסיף סימון.',
     pk_legend: 'סיכות אפורות P1–P{n}: נזקים שכבר תועדו באיסוף.',
     no_marks: 'טרם סומנו נזקים.', remove: 'הסר',
+    note_none: 'לא נוספה הערה', close_btn: 'סגירה',
     add_cu: 'הוסף תקריב', replace: 'החלף',
     dlg_t: 'מה מצאתם כאן?',
     dt0: 'שריטה', dt1: 'מעיכה', dt2: 'שפשוף חישוק', dt3: 'שבב או סדק',
     dt4: 'חלק חסר', dt5: 'כתם או קרע', dt6: 'אחר',
     note_l: 'הערה (רשות)', note_ph: 'למשל: שריטה עמוקה, כ-10 ס"מ',
     note_latin: 'טיפ: הערה באנגלית תוצג הכי טוב ב-PDF.',
+    field_latin: 'זה מוצג הכי טוב באותיות ומספרים באנגלית — כתבים אחרים עלולים לא להיראות נכון ב-PDF.',
     cu_l: 'תקריב (רשות)',
     cu_hint: 'תמונה של הנקודה המדויקת. תופיע בדו"ח בעמוד משלה.',
     cu_take: 'צלם תקריב', cu_re: 'צלם שוב', cu_rm: 'הסר תמונה',
@@ -233,6 +247,7 @@
     warnN_b: 'צלמו את החסרות',
     dl_btn: 'הורדת דו"ח PDF',
     share_btn: 'שתף את ה-PDF', vid_dl: 'הורד סרטון',
+    share_ready_btn: 'מוכן — הקישו לשיתוף',
     save_pickup: 'שמור קובץ איסוף',
     save_pickup_hint: 'קובץ האיסוף הוא קובץ קטן נוסף. טענו אותו בהחזרה ורק נזק חדש יעמוד לדיון.',
     dispute_btn: 'העתק נוסח מייל לערעור',
@@ -242,6 +257,7 @@
     st_saved: 'נשמר בשם {name}',
     st_savefail: 'לא ניתן לשמור את הקובץ במכשיר הזה.',
     st_nolib: 'כלי ה-PDF לא נטען. בדקו חיבור ורעננו את הדף.',
+    st_pdf_fail: 'משהו השתבש ביצירת ה-PDF. התמונות והסימונים שלכם עדיין כאן — נסו שוב.',
     st_cancel: 'ההורדה בוטלה. לחצו שוב כדי לנסות.',
     st_big: 'הקובץ גדול מדי לשמירה כאן. נסו שוב עם פחות תמונות.',
     st_retry: 'המתינו רגע ולחצו שוב.',
@@ -259,6 +275,9 @@
 
   STR.de = {
     skip: 'Zum Inhalt springen',
+    aria_lang: 'Sprache', aria_progress: 'Fortschritt', aria_fuel: 'Tankstand',
+    aria_phase: 'Abholung oder Rückgabe', aria_type: 'Art des Schadens', aria_dismiss: 'Schließen',
+    aria_car: 'Draufsicht eines Autos. Tippen Sie auf eine Stelle, um eine Schadensmarkierung hinzuzufügen. Tastatur: Pfeiltasten bewegen den Cursor, Enter oder Leertaste bestätigt.',
     tagline: 'Zwei Minuten jetzt. Beweise für immer.',
     tab1: 'Auto', tab2: 'Fotos', tab3: 'Schäden', tab4: 'Bericht',
     s1_title: 'Schritt 1 von 4 — Ihr Auto',
@@ -267,6 +286,7 @@
     plate_l: 'Kennzeichen', plate_req: 'erforderlich',
     plate_hint: 'Steht auf dem Schlüsselanhänger oder am Auto selbst.',
     plate_error: 'Geben Sie das Kennzeichen ein, bevor Sie fortfahren.',
+    plate_latin: 'Verwenden Sie englische Buchstaben und Zahlen — PDF und Dateiname können andere Schriften nicht darstellen.',
     model_l: 'Marke und Modell',
     odo_l: 'Kilometerstand',
     odo_hint: 'Auch auf Foto 8 zu sehen, eine genaue Zahl hier ist optional.',
@@ -312,12 +332,14 @@
     svg_hint: 'Auf das Auto tippen, um eine Markierung hinzuzufügen.',
     pk_legend: 'Graue Stecknadeln P1–P{n}: bei der Abholung bereits erfasste Schäden.',
     no_marks: 'Noch keine Schäden markiert.', remove: 'Entfernen',
+    note_none: 'Keine Notiz hinzugefügt', close_btn: 'Schließen',
     add_cu: 'Nahaufnahme hinzufügen', replace: 'Ersetzen',
     dlg_t: 'Was haben Sie hier gefunden?',
     dt0: 'Kratzer', dt1: 'Delle', dt2: 'Felgenschaden', dt3: 'Absplitterung oder Riss',
     dt4: 'Fehlendes Teil', dt5: 'Fleck oder Riss', dt6: 'Sonstiges',
     note_l: 'Notiz (optional)', note_ph: 'z. B. tiefer Kratzer, ca. 10 cm',
     note_latin: 'Tipp: Eine Notiz auf Englisch wird im PDF am besten dargestellt.',
+    field_latin: 'Dies wird am besten in englischen Buchstaben und Zahlen dargestellt — andere Schriften werden im PDF möglicherweise nicht korrekt angezeigt.',
     cu_l: 'Nahaufnahme (optional)',
     cu_hint: 'Ein Foto genau dieser Stelle. Erscheint im Bericht auf einer eigenen Seite.',
     cu_take: 'Nahaufnahme machen', cu_re: 'Erneut aufnehmen', cu_rm: 'Foto entfernen',
@@ -341,6 +363,7 @@
     warnN_b: 'Fehlende Fotos aufnehmen',
     dl_btn: 'PDF-Bericht herunterladen',
     share_btn: 'PDF teilen', vid_dl: 'Video herunterladen',
+    share_ready_btn: 'Bereit — zum Teilen tippen',
     save_pickup: 'Abholdatei speichern',
     save_pickup_hint: 'Die Abholdatei ist eine kleine Zusatzdatei. Bei der Rückgabe laden, dann zählt nur neuer Schaden.',
     dispute_btn: 'E-Mail-Text kopieren',
@@ -350,6 +373,7 @@
     st_saved: 'Gespeichert als {name}',
     st_savefail: 'Die Datei konnte auf diesem Gerät nicht gespeichert werden.',
     st_nolib: 'Das PDF-Werkzeug wurde nicht geladen. Verbindung prüfen und Seite neu laden.',
+    st_pdf_fail: 'Beim Erstellen des PDFs ist etwas schiefgelaufen. Ihre Fotos und Markierungen sind noch da — bitte erneut versuchen.',
     st_cancel: 'Download abgebrochen. Zum erneuten Versuch tippen.',
     st_big: 'Diese Datei ist zu groß zum Speichern. Versuchen Sie es mit weniger Fotos erneut.',
     st_retry: 'Bitte kurz warten und dann erneut tippen.',
@@ -367,6 +391,9 @@
 
   STR.fr = {
     skip: 'Aller au contenu',
+    aria_lang: 'Langue', aria_progress: 'Progression', aria_fuel: 'Niveau de carburant',
+    aria_phase: 'Prise en charge ou retour', aria_type: 'Type de dommage', aria_dismiss: 'Fermer',
+    aria_car: 'Vue de dessus d\'une voiture. Touchez un endroit pour ajouter une marque de dommage. Clavier : les flèches déplacent le curseur, Entrée ou Espace valide.',
     tagline: 'Deux minutes maintenant. Des preuves pour toujours.',
     tab1: 'Voiture', tab2: 'Photos', tab3: 'Dommages', tab4: 'Rapport',
     s1_title: 'Étape 1 sur 4 — Votre voiture',
@@ -375,6 +402,7 @@
     plate_l: 'Plaque d\'immatriculation', plate_req: 'requis',
     plate_hint: 'Elle se trouve sur le porte-clés ou sur la voiture.',
     plate_error: 'Saisissez la plaque d\'immatriculation avant de continuer.',
+    plate_latin: 'Utilisez des lettres et chiffres latins — le PDF et le nom du fichier ne peuvent pas afficher d\'autres écritures.',
     model_l: 'Marque et modèle',
     odo_l: 'Kilométrage',
     odo_hint: 'Visible aussi sur la photo 8, un chiffre exact ici est facultatif.',
@@ -420,12 +448,14 @@
     svg_hint: 'Touchez la voiture ci-dessus pour ajouter une marque.',
     pk_legend: 'Épingles grises P1–P{n} : dommages déjà notés à la prise en charge.',
     no_marks: 'Aucun dommage marqué pour l\'instant.', remove: 'Supprimer',
+    note_none: 'Aucune note ajoutée', close_btn: 'Fermer',
     add_cu: 'Ajouter un gros plan', replace: 'Remplacer',
     dlg_t: 'Qu\'avez-vous trouvé ici ?',
     dt0: 'Rayure', dt1: 'Bosse', dt2: 'Jante frottée', dt3: 'Éclat ou fissure',
     dt4: 'Pièce manquante', dt5: 'Tache ou déchirure', dt6: 'Autre',
     note_l: 'Note (facultatif)', note_ph: 'ex. rayure profonde, environ 10 cm',
     note_latin: 'Astuce : une note en anglais s\'affiche mieux dans le PDF.',
+    field_latin: 'Cela s\'affiche mieux en lettres et chiffres latins — d\'autres écritures peuvent ne pas s\'afficher correctement dans le PDF.',
     cu_l: 'Gros plan (facultatif)',
     cu_hint: 'Une photo de cet endroit précis. Elle apparaît dans le rapport sur sa propre page.',
     cu_take: 'Prendre un gros plan', cu_re: 'Reprendre', cu_rm: 'Supprimer la photo',
@@ -449,6 +479,7 @@
     warnN_b: 'Prendre les photos manquantes',
     dl_btn: 'Télécharger le rapport PDF',
     share_btn: 'Partager le PDF', vid_dl: 'Télécharger la vidéo',
+    share_ready_btn: 'Prêt — touchez pour partager',
     save_pickup: 'Enregistrer le fichier de prise en charge',
     save_pickup_hint: 'Le fichier de prise en charge est un petit fichier supplémentaire. Chargez-le au retour, seuls les nouveaux dommages compteront.',
     dispute_btn: 'Copier le texte de contestation',
@@ -458,6 +489,7 @@
     st_saved: 'Enregistré sous {name}',
     st_savefail: 'Le fichier n\'a pas pu être enregistré sur cet appareil.',
     st_nolib: 'L\'outil PDF ne s\'est pas chargé. Vérifiez la connexion et rechargez la page.',
+    st_pdf_fail: 'Une erreur est survenue lors de la création du PDF. Vos photos et marques sont toujours là — veuillez réessayer.',
     st_cancel: 'Téléchargement annulé. Touchez à nouveau pour réessayer.',
     st_big: 'Ce fichier est trop volumineux pour être enregistré ici. Réessayez avec moins de photos.',
     st_retry: 'Veuillez patienter un instant, puis toucher à nouveau.',
@@ -475,6 +507,9 @@
 
   STR.es = {
     skip: 'Ir al contenido',
+    aria_lang: 'Idioma', aria_progress: 'Progreso', aria_fuel: 'Nivel de combustible',
+    aria_phase: 'Recogida o devolución', aria_type: 'Tipo de daño', aria_dismiss: 'Cerrar',
+    aria_car: 'Vista superior de un coche. Toca un punto para añadir una marca de daño. Teclado: las flechas mueven el cursor, Intro o Espacio confirma.',
     tagline: 'Dos minutos ahora. Pruebas para siempre.',
     tab1: 'Coche', tab2: 'Fotos', tab3: 'Daños', tab4: 'Informe',
     s1_title: 'Paso 1 de 4 — Tu coche',
@@ -483,6 +518,7 @@
     plate_l: 'Matrícula', plate_req: 'obligatorio',
     plate_hint: 'Está en el llavero o en el propio coche.',
     plate_error: 'Introduce la matrícula antes de continuar.',
+    plate_latin: 'Usa letras y números en inglés — el PDF y el nombre del archivo no pueden mostrar otras escrituras.',
     model_l: 'Marca y modelo',
     odo_l: 'Kilometraje',
     odo_hint: 'También se ve en la foto 8, un número exacto aquí es opcional.',
@@ -528,12 +564,14 @@
     svg_hint: 'Toca el coche para añadir una marca.',
     pk_legend: 'Chinchetas grises P1–P{n}: daños ya registrados en la recogida.',
     no_marks: 'Todavía no hay daños marcados.', remove: 'Quitar',
+    note_none: 'Sin nota añadida', close_btn: 'Cerrar',
     add_cu: 'Añadir primer plano', replace: 'Reemplazar',
     dlg_t: '¿Qué encontraste aquí?',
     dt0: 'Rayón', dt1: 'Abolladura', dt2: 'Roce en la llanta', dt3: 'Astilla o grieta',
     dt4: 'Pieza faltante', dt5: 'Mancha o rotura', dt6: 'Otro',
     note_l: 'Nota (opcional)', note_ph: 'ej. rayón profundo, unos 10 cm',
     note_latin: 'Consejo: una nota en inglés se ve mejor en el PDF.',
+    field_latin: 'Esto se ve mejor en letras y números en inglés — otras escrituras pueden no mostrarse correctamente en el PDF.',
     cu_l: 'Primer plano (opcional)',
     cu_hint: 'Una foto de este punto exacto. Aparece en el informe en su propia página.',
     cu_take: 'Tomar primer plano', cu_re: 'Repetir', cu_rm: 'Quitar foto',
@@ -557,6 +595,7 @@
     warnN_b: 'Hacer las fotos que faltan',
     dl_btn: 'Descargar informe en PDF',
     share_btn: 'Compartir el PDF', vid_dl: 'Descargar vídeo',
+    share_ready_btn: 'Listo — toca para compartir',
     save_pickup: 'Guardar archivo de recogida',
     save_pickup_hint: 'El archivo de recogida es un pequeño archivo extra. Cárgalo en la devolución y solo contarán los daños nuevos.',
     dispute_btn: 'Copiar texto para reclamar',
@@ -566,6 +605,7 @@
     st_saved: 'Guardado como {name}',
     st_savefail: 'No se pudo guardar el archivo en este dispositivo.',
     st_nolib: 'La herramienta de PDF no se cargó. Revisa la conexión y recarga la página.',
+    st_pdf_fail: 'Algo salió mal al crear el PDF. Tus fotos y marcas siguen aquí — inténtalo de nuevo.',
     st_cancel: 'Descarga cancelada. Toca de nuevo para intentarlo.',
     st_big: 'Este archivo es demasiado grande para guardarlo aquí. Inténtalo de nuevo con menos fotos.',
     st_retry: 'Espera un momento y vuelve a tocar el botón.',
@@ -608,11 +648,24 @@
     for (var j = 0; j < btns.length; j++) {
       btns[j].classList.toggle('is-active', btns[j].getAttribute('data-lang') === lang);
     }
+
+    // These aria-labels were hardcoded English in the markup, so a Hebrew
+    // (or German/French/Spanish) screen-reader user got English for them
+    // even though every other piece of text on the page had translated.
+    $('#langRow').setAttribute('aria-label', t('aria_lang'));
+    $('#stepsNav').setAttribute('aria-label', t('aria_progress'));
+    $('#fuelRow').setAttribute('aria-label', t('aria_fuel'));
+    $('#phaseRow').setAttribute('aria-label', t('aria_phase'));
+    $('#typeGrid').setAttribute('aria-label', t('aria_type'));
+    $('#carSvg').setAttribute('aria-label', t('aria_car'));
+    $('#installDismiss').setAttribute('aria-label', t('aria_dismiss'));
+
     buildShotList();
     buildTypeGrid();
     updateShotCount();
     renderMarks();
     renderVideoUI();
+    renderGeoUI();
     if (state.step === 4) { renderSummary(); }
   }
 
@@ -714,10 +767,15 @@
     window.scrollTo(0, 0);
   }
 
-  // Fix 3: nothing stopped a driver from reaching Step 2 (and beyond)
-  // with no licence plate recorded, so a report could end up with no way
-  // to identify which car it belongs to.
-  function validatePlateBeforeStep2() {
+  // Nothing stopped a driver from reaching Step 2 (and beyond) with no
+  // licence plate recorded, so a report could end up with no way to
+  // identify which car it belongs to.
+  //
+  // The first version of this check only guarded data-goto="2", so the
+  // numbered tabs for "3" and "4" still let a driver skip straight past
+  // it. Every forward destination needs the plate, so gate on "not step 1"
+  // rather than on any one specific target.
+  function validatePlateBeforeAdvancing() {
     var input = $('#plate');
     var error = $('#plateError');
     var ok = input.value.trim().length > 0;
@@ -729,14 +787,27 @@
   }
 
   $('#plate').addEventListener('input', function () {
-    if (!$('#plateError').classList.contains('is-hidden')) { validatePlateBeforeStep2(); }
+    if (!$('#plateError').classList.contains('is-hidden')) { validatePlateBeforeAdvancing(); }
+    $('#plateLatinHint').classList.toggle('is-hidden', isLatin($('#plate').value));
+  });
+
+  // The damage-note field already warned about non-Latin text (the PDF's
+  // font can't render it), but company/model/plate could go in just as
+  // garbled with no warning at all -- and a non-Latin plate specifically
+  // strips to nothing and falls back to "NOPLATE" in the filename, with
+  // no indication why.
+  $('#company').addEventListener('input', function () {
+    $('#companyLatinHint').classList.toggle('is-hidden', isLatin($('#company').value));
+  });
+  $('#model').addEventListener('input', function () {
+    $('#modelLatinHint').classList.toggle('is-hidden', isLatin($('#model').value));
   });
 
   document.addEventListener('click', function (ev) {
     var btn = ev.target.closest ? ev.target.closest('[data-goto]') : null;
     if (!btn) { return; }
     var target = Number(btn.getAttribute('data-goto'));
-    if (target === 2 && !validatePlateBeforeStep2()) { return; }
+    if (target !== 1 && !validatePlateBeforeAdvancing()) { goto(1); return; }
     goto(target);
   });
 
@@ -748,6 +819,19 @@
     var phaseEl = document.querySelector('input[name="phase"]:checked');
     var isReturn = phaseEl && phaseEl.value === 'Return';
     $('#compareBox').classList.toggle('is-hidden', !isReturn);
+
+    // Switching back to Pickup never cleared a loaded comparison: the grey
+    // pins from the old pickup file kept showing on the diagram for what
+    // is now a fresh pickup inspection, and "Save pickup file" stayed
+    // hidden (it only shows once there's no pickup already loaded) even
+    // though this new pickup is exactly what should be saved.
+    if (!isReturn && state.pickup) {
+      state.pickup = null;
+      var el = $('#compareStatus');
+      el.textContent = '';
+      el.classList.remove('is-on');
+      renderMarks();
+    }
   }
   document.addEventListener('change', function (ev) {
     if (ev.target && ev.target.name === 'phase') { updateCompareVisibility(); }
@@ -1101,11 +1185,77 @@
     if (p) { openMarkModal(p); }
   });
 
+  // A keyboard user pressing Enter/Space always landed on the exact same
+  // pixel (the car's centre), so two keyboard-placed marks were visually
+  // identical on the diagram -- there was no way to tell them apart or to
+  // place one anywhere else. Arrow keys now move a visible dashed cursor
+  // around the car; Enter or Space adds a mark at wherever it currently is.
+  var kbCursor = { x: 160, y: 310 };
+  var KB_STEP = 14;
+  var KB_MIN_X = 8, KB_MAX_X = 312, KB_MIN_Y = 8, KB_MAX_Y = 612;
+
+  function updateKbCursorVisual() {
+    var el = $('#kbCursor');
+    el.setAttribute('cx', kbCursor.x);
+    el.setAttribute('cy', kbCursor.y);
+  }
+
+  svg.addEventListener('focus', function () {
+    $('#kbCursor').classList.remove('is-hidden');
+    updateKbCursorVisual();
+  });
+  svg.addEventListener('blur', function () {
+    $('#kbCursor').classList.add('is-hidden');
+  });
+
   svg.addEventListener('keydown', function (ev) {
+    if (ev.key === 'ArrowUp') { ev.preventDefault(); kbCursor.y = Math.max(KB_MIN_Y, kbCursor.y - KB_STEP); updateKbCursorVisual(); return; }
+    if (ev.key === 'ArrowDown') { ev.preventDefault(); kbCursor.y = Math.min(KB_MAX_Y, kbCursor.y + KB_STEP); updateKbCursorVisual(); return; }
+    if (ev.key === 'ArrowLeft') { ev.preventDefault(); kbCursor.x = Math.max(KB_MIN_X, kbCursor.x - KB_STEP); updateKbCursorVisual(); return; }
+    if (ev.key === 'ArrowRight') { ev.preventDefault(); kbCursor.x = Math.min(KB_MAX_X, kbCursor.x + KB_STEP); updateKbCursorVisual(); return; }
     if (ev.key === 'Enter' || ev.key === ' ') {
       ev.preventDefault();
-      openMarkModal({ x: 160, y: 310 });
+      openMarkModal({ x: kbCursor.x, y: kbCursor.y });
     }
+  });
+
+  function translatedDamageType(type) {
+    var idx = DAMAGE_TYPES.indexOf(type);
+    return t('dt' + (idx >= 0 ? idx : 0));
+  }
+
+  // Tapping a grey pickup pin shows its type, note and close-up photo.
+  // A native SVG <title> (hover tooltip) never fires on a touch screen, so
+  // that data -- carried through in the pickup file precisely so it could
+  // be seen again at return -- was otherwise unreachable on the phone this
+  // app is built for. #pickupLayer keeps pointer-events:none so the empty
+  // diagram area still falls through to "add a new mark"; each .ppin turns
+  // pointer events back on for itself (see styles.css) and this handler
+  // stops the click from also bubbling up into that add-a-mark listener.
+  function openPickupInfo(m, i) {
+    $('#pickupInfoTitle').textContent = 'P' + (i + 1) + ': ' + translatedDamageType(m.type);
+    $('#pickupInfoNote').textContent = m.note || t('note_none');
+    var img = $('#pickupInfoPhoto');
+    if (m.photo && m.photo.dataUrl) {
+      img.src = m.photo.dataUrl;
+      img.classList.remove('is-hidden');
+    } else {
+      img.removeAttribute('src');
+      img.classList.add('is-hidden');
+    }
+    $('#pickupInfoModal').classList.remove('is-hidden');
+  }
+
+  function closePickupInfo() {
+    $('#pickupInfoModal').classList.add('is-hidden');
+  }
+
+  $('#pickupInfoClose').addEventListener('click', closePickupInfo);
+  $('#pickupInfoModal').addEventListener('click', function (ev) {
+    if (ev.target === $('#pickupInfoModal')) { closePickupInfo(); }
+  });
+  document.addEventListener('keydown', function (ev) {
+    if (ev.key === 'Escape' && !$('#pickupInfoModal').classList.contains('is-hidden')) { closePickupInfo(); }
   });
 
   function renderPickupPins() {
@@ -1119,17 +1269,26 @@
     state.pickup.marks.forEach(function (m, i) {
       var g = document.createElementNS(SVGNS, 'g');
       g.setAttribute('class', 'ppin');
+      g.setAttribute('tabindex', '0');
+      g.setAttribute('role', 'button');
+      g.setAttribute('aria-label', 'P' + (i + 1) + ': ' + translatedDamageType(m.type) + (m.note ? ', ' + m.note : ''));
       var c = document.createElementNS(SVGNS, 'circle');
       c.setAttribute('cx', m.x); c.setAttribute('cy', m.y); c.setAttribute('r', '11');
       var txt = document.createElementNS(SVGNS, 'text');
       txt.setAttribute('x', m.x); txt.setAttribute('y', m.y);
       txt.textContent = 'P' + (i + 1);
-      // Hover/long-press title so the note saved at pickup (now carried
-      // through in the pickup file) is actually reachable at return.
-      var title = document.createElementNS(SVGNS, 'title');
-      title.textContent = 'P' + (i + 1) + ': ' + (m.type || '') + (m.note ? ' \u2014 ' + m.note : '');
-      g.appendChild(title);
       g.appendChild(c); g.appendChild(txt);
+      g.addEventListener('click', function (ev) {
+        ev.stopPropagation();
+        openPickupInfo(m, i);
+      });
+      g.addEventListener('keydown', function (ev) {
+        if (ev.key === 'Enter' || ev.key === ' ') {
+          ev.preventDefault();
+          ev.stopPropagation();
+          openPickupInfo(m, i);
+        }
+      });
       layer.appendChild(g);
     });
     legend.textContent = t('pk_legend', { n: state.pickup.marks.length });
@@ -1139,13 +1298,20 @@
   function buildTypeGrid() {
     var grid = $('#typeGrid');
     grid.innerHTML = '';
+    // Switching language while the damage dialog is open used to rebuild
+    // this grid with nothing highlighted, even though state.pendingType
+    // (an English constant from DAMAGE_TYPES, unaffected by language) was
+    // still set underneath -- so the type you'd picked looked deselected,
+    // though it would still have saved correctly if you hit Add mark.
     DAMAGE_TYPES.forEach(function (type, i) {
       var b = document.createElement('button');
       b.type = 'button';
       b.className = 'type-btn';
       b.textContent = t('dt' + i);
       b.setAttribute('role', 'radio');
-      b.setAttribute('aria-checked', 'false');
+      var picked = type === state.pendingType;
+      b.classList.toggle('is-picked', picked);
+      b.setAttribute('aria-checked', picked ? 'true' : 'false');
       b.addEventListener('click', function () {
         state.pendingType = type;
         var all = grid.querySelectorAll('.type-btn');
@@ -1178,12 +1344,27 @@
     }
   }
 
+  // If "Add mark" was tapped before shrinkImage's async work finished, the
+  // mark saved with photo: null and no warning -- easy to hit on an older
+  // phone, where resizing a 12MP photo can take over a second. photoBusy
+  // disables Save for that window; photoOpToken stops a photo that
+  // finishes processing AFTER the dialog was cancelled (or reopened for a
+  // different mark) from landing on the wrong mark.
+  var photoBusy = false;
+  var photoOpToken = 0;
+
   $('#markPhotoInput').addEventListener('change', function () {
     var input = $('#markPhotoInput');
     if (!input.files || !input.files[0]) { return; }
+    var myToken = photoOpToken;
+    photoBusy = true;
+    $('#markSave').disabled = true;
     $('#markPhotoBtn').textContent = t('working');
     shrinkImage(input.files[0], function (err, result) {
       input.value = '';
+      if (myToken !== photoOpToken) { return; } // dialog moved on; discard this result
+      photoBusy = false;
+      $('#markSave').disabled = false;
       if (err) { showPendingPhoto(); alert(t('read_err')); return; }
       result.takenAt = stamp();
       state.pendingPhoto = result;
@@ -1197,6 +1378,9 @@
   });
 
   function openMarkModal(point) {
+    photoOpToken++; // any close-up still processing for a previous mark is now stale
+    photoBusy = false;
+    $('#markSave').disabled = false;
     state.pendingPoint = point;
     state.pendingType = DAMAGE_TYPES[0];
     state.pendingPhoto = null;
@@ -1229,6 +1413,26 @@
   document.addEventListener('keydown', function (ev) {
     if (ev.key === 'Escape' && !$('#markModal').classList.contains('is-hidden')) { closeMarkModal(); }
   });
+
+  // Tab used to walk straight out of either dialog into the page behind
+  // it, with no way to tell (the backdrop gives no visual cue), so a
+  // keyboard user could end up interacting with a step that looked hidden.
+  function trapFocus(modalEl) {
+    return function (ev) {
+      if (ev.key !== 'Tab') { return; }
+      var all = modalEl.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      var list = Array.prototype.filter.call(all, function (el) { return !el.disabled && el.offsetParent !== null; });
+      if (!list.length) { return; }
+      var first = list[0], last = list[list.length - 1];
+      if (ev.shiftKey && document.activeElement === first) {
+        ev.preventDefault(); last.focus();
+      } else if (!ev.shiftKey && document.activeElement === last) {
+        ev.preventDefault(); first.focus();
+      }
+    };
+  }
+  $('#markModal').addEventListener('keydown', trapFocus($('#markModal')));
+  $('#pickupInfoModal').addEventListener('keydown', trapFocus($('#pickupInfoModal')));
 
   // A note in a non-Latin script prints fine in the app but the PDF text
   // layer is Latin-only, so flag it gently rather than fail silently later.
@@ -1268,9 +1472,6 @@
       layer.appendChild(g);
     });
 
-    var typeIndex = {};
-    DAMAGE_TYPES.forEach(function (dt, i) { typeIndex[dt] = i; });
-
     var list = $('#markList');
     list.innerHTML = '';
     state.marks.forEach(function (m, i) {
@@ -1285,7 +1486,7 @@
       body.className = 'mark-body';
       var type = document.createElement('p');
       type.className = 'mark-type';
-      type.textContent = t('dt' + (typeIndex[m.type] || 0));
+      type.textContent = translatedDamageType(m.type);
       body.appendChild(type);
       if (m.note) {
         var note = document.createElement('p');
@@ -1341,7 +1542,7 @@
       rm.type = 'button';
       rm.className = 'mark-remove';
       rm.textContent = t('remove');
-      rm.setAttribute('aria-label', t('remove') + ' ' + (i + 1) + ', ' + t('dt' + (typeIndex[m.type] || 0)));
+      rm.setAttribute('aria-label', t('remove') + ' ' + (i + 1) + ', ' + translatedDamageType(m.type));
       rm.addEventListener('click', function () {
         state.marks = state.marks.filter(function (x) { return x.id !== m.id; });
         renderMarks();
@@ -1366,18 +1567,49 @@
     el.classList.toggle('is-on', !!ok);
   }
 
+  // The button's label and status line were set once, imperatively, in
+  // whatever language was active at that moment (e.g. "Location saved").
+  // Nothing re-ran them on a later language switch, so a successful (or
+  // failed) geolocation result could sit there in the wrong language for
+  // the rest of the session. geoUiState tracks which of the four outcomes
+  // we're in; renderGeoUI() re-renders it in the current language, called
+  // both from the geolocation callbacks and from applyTranslations().
+  var geoUiState = 'idle'; // 'idle' | 'asking' | 'saved' | 'unavailable'
+
+  function renderGeoUI() {
+    var btn = $('#geoBtn');
+    if (geoUiState === 'saved' && state.geo) {
+      setGeoStatus(
+        state.geo.lat.toFixed(5) + ', ' + state.geo.lon.toFixed(5) +
+        ' (±' + Math.round(state.geo.accuracy) + ' m)', true
+      );
+      btn.textContent = t('geo_saved');
+    } else if (geoUiState === 'asking') {
+      setGeoStatus(t('geo_asking'), false);
+      btn.textContent = t('geo_btn');
+    } else if (geoUiState === 'unavailable') {
+      setGeoStatus(t('geo_none'), false);
+      btn.textContent = t('geo_na');
+    } else {
+      setGeoStatus(t('geo_none'), false);
+      btn.textContent = t('geo_btn');
+    }
+  }
+
   $('#geoBtn').addEventListener('click', function () {
     var btn = $('#geoBtn');
     if (state.geoAsked) { return; }
     if (!navigator.geolocation) {
       state.geoAsked = true;
-      setGeoStatus(t('geo_none'), false);
+      geoUiState = 'unavailable';
       btn.disabled = true;
+      renderGeoUI();
       return;
     }
     state.geoAsked = true;
     btn.disabled = true;
-    setGeoStatus(t('geo_asking'), false);
+    geoUiState = 'asking';
+    renderGeoUI();
     navigator.geolocation.getCurrentPosition(
       function (pos) {
         state.geo = {
@@ -1386,23 +1618,20 @@
           accuracy: pos.coords.accuracy,
           at: stamp()
         };
-        setGeoStatus(
-          state.geo.lat.toFixed(5) + ', ' + state.geo.lon.toFixed(5) +
-          ' (±' + Math.round(state.geo.accuracy) + ' m)', true
-        );
-        btn.textContent = t('geo_saved');
+        geoUiState = 'saved';
+        renderGeoUI();
       },
       function () {
-        // Fix 5: a denied or timed-out request left geoAsked permanently
-        // true and the button permanently disabled, so a driver who
-        // dismissed the browser's permission prompt by mistake (or lost
-        // a fix in a garage) had no way to try again short of restarting
-        // the whole inspection and losing every photo taken so far.
+        // A denied or timed-out request left geoAsked permanently true
+        // and the button permanently disabled, so a driver who dismissed
+        // the browser's permission prompt by mistake (or lost a fix in a
+        // garage) had no way to try again short of restarting the whole
+        // inspection and losing every photo taken so far.
         state.geo = null;
         state.geoAsked = false;
         btn.disabled = false;
-        setGeoStatus(t('geo_none'), false);
-        btn.textContent = t('geo_btn');
+        geoUiState = 'idle';
+        renderGeoUI();
       },
       { enableHighAccuracy: true, timeout: 12000, maximumAge: 0 }
     );
@@ -1552,6 +1781,12 @@
     var jsPDFCtor = (window.jspdf && window.jspdf.jsPDF) || window.jsPDF;
     if (!jsPDFCtor) { done(new Error(t('st_nolib'))); return; }
 
+    // Nothing wrapped this function, so a single uncaught exception
+    // anywhere in it left the Download button permanently disabled on
+    // "Building your PDF..." for the rest of the session -- and since
+    // state is memory-only, a reload to recover loses every photo taken.
+    try {
+
     var tr = trip();
     var now = stamp();
     var doc = new jsPDFCtor({ unit: 'mm', format: 'a4', compress: true });
@@ -1653,6 +1888,7 @@
 
     /* ---- Page 2: diagram ---- */
     diagramToPng(function (png) {
+      try {
       doc.addPage('a4', 'portrait');
       y = M;
       line('Damage diagram', 15, 'bold'); y += 2;
@@ -1710,22 +1946,33 @@
         }
         panelH += 3;
 
+        // Nothing bounded this panel against the page: an unusually long
+        // note had nowhere to go but past the bottom edge of the page,
+        // where jsPDF neither wraps nor clips it -- it just renders
+        // invisibly off the sheet. The 120-character note limit keeps
+        // this from happening today, but the box itself should never be
+        // able to draw past the page regardless of any future change to
+        // that limit.
+        var maxPanelH = PH - M - top;
+        if (panelH > maxPanelH) { panelH = maxPanelH; }
+        var maxDy = top + maxPanelH - 4;
+
         doc.setFillColor(243, 245, 248); doc.setDrawColor(214, 220, 228);
         doc.roundedRect(detailX, top, DETAIL_W, panelH, 3, 3, 'FD');
 
         var dy = top + 8;
         doc.setFont('helvetica', 'bold'); doc.setFontSize(12); doc.setTextColor(20, 24, 31);
-        for (var ti = 0; ti < titleLines.length; ti++) { doc.text(titleLines[ti], detailX + 4, dy); dy += 5.6; }
+        for (var ti = 0; ti < titleLines.length && dy <= maxDy; ti++) { doc.text(titleLines[ti], detailX + 4, dy); dy += 5.6; }
         dy += 1;
         doc.setDrawColor(206, 213, 222);
         doc.line(detailX + 4, dy, detailX + DETAIL_W - 4, dy); dy += 5;
 
-        for (var k = 0; k < rows.length; k++) {
+        for (var k = 0; k < rows.length && dy <= maxDy; k++) {
           doc.setFont('helvetica', 'bold'); doc.setFontSize(7.2); doc.setTextColor(118, 128, 142);
           doc.text(String(rows[k][0]).toUpperCase(), detailX + 4, dy); dy += 4.4;
           var mono = /plate|utc|local|position/i.test(rows[k][0]);
           doc.setFont(mono ? 'courier' : 'helvetica', 'normal'); doc.setFontSize(8.6); doc.setTextColor(28, 33, 41);
-          for (var vi = 0; vi < blocks[k].length; vi++) { doc.text(blocks[k][vi], detailX + 4, dy); dy += 4.2; }
+          for (var vi = 0; vi < blocks[k].length && dy <= maxDy; vi++) { doc.text(blocks[k][vi], detailX + 4, dy); dy += 4.2; }
           dy += 3;
         }
       }
@@ -1760,7 +2007,16 @@
 
       var name = 'DingProof_' + safePlate(tr.plate) + '_' + fileDateStr(now.date) + '.pdf';
       done(null, doc, name);
+      } catch (e2) {
+        // A raw, technical, English-only exception message shown straight
+        // to a stressed non-technical traveller (in whatever language the
+        // rest of the app is in) defeats the point of catching it at all.
+        done(new Error(t('st_pdf_fail')));
+      }
     });
+    } catch (e) {
+      done(new Error(t('st_pdf_fail')));
+    }
   }
 
   /* ---------------------------------------------------------------
@@ -1842,24 +2098,61 @@
      Share the PDF (Web Share API, where present)
   --------------------------------------------------------------- */
 
-  $('#shareBtn').addEventListener('click', function () {
-    var status = $('#extraStatus');
-    buildPdf(function (err, doc, name) {
-      if (err) { status.classList.remove('is-on'); status.textContent = err.message; return; }
-      try {
-        var blob = doc.output('blob');
-        var file = new File([blob], name, { type: 'application/pdf' });
-        if (navigator.canShare && navigator.canShare({ files: [file] })) {
-          navigator.share({ files: [file], title: 'DingProof' })['catch'](function () {});
-        } else {
+  // Building the PDF is asynchronous (diagramToPng loads an image), so by
+  // the time navigator.share() used to run, Safari/iOS had already decided
+  // this call was no longer "in response to" the tap that started it and
+  // silently refused it -- worse, the rejection landed in an empty catch,
+  // so the user got no feedback at all: tap, wait, nothing.
+  //
+  // navigator.share() must be the very next thing that happens after a
+  // user gesture with nothing async in between. So the first tap only
+  // builds the PDF and holds onto it; the actual share() call happens on
+  // a second, fresh tap, synchronously, with no work in between.
+  var shareReady = null; // { doc, name } once built and waiting for that second tap
+
+  function doShare(doc, name, status) {
+    try {
+      var blob = doc.output('blob');
+      var file = new File([blob], name, { type: 'application/pdf' });
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        navigator.share({ files: [file], title: 'DingProof' })['catch'](function (e) {
+          if (e && e.name === 'AbortError') { return; } // the user closed the share sheet themselves
           downloadBlob(name, blob, 'application/pdf');
           status.classList.add('is-on');
           status.textContent = t('st_saved', { name: name });
-        }
-      } catch (e) {
-        status.classList.remove('is-on');
-        status.textContent = t('st_savefail');
+        });
+      } else {
+        downloadBlob(name, blob, 'application/pdf');
+        status.classList.add('is-on');
+        status.textContent = t('st_saved', { name: name });
       }
+    } catch (e) {
+      status.classList.remove('is-on');
+      status.textContent = t('st_savefail');
+    }
+  }
+
+  $('#shareBtn').addEventListener('click', function () {
+    var status = $('#extraStatus');
+    var btn = $('#shareBtn');
+
+    if (shareReady) {
+      var ready = shareReady;
+      shareReady = null;
+      btn.textContent = t('share_btn');
+      doShare(ready.doc, ready.name, status);
+      return;
+    }
+
+    btn.disabled = true;
+    status.classList.remove('is-on');
+    status.textContent = t('st_build');
+    buildPdf(function (err, doc, name) {
+      btn.disabled = false;
+      if (err) { status.classList.remove('is-on'); status.textContent = err.message; return; }
+      shareReady = { doc: doc, name: name };
+      status.textContent = '';
+      btn.textContent = t('share_ready_btn');
     });
   });
 
@@ -1953,12 +2246,15 @@
     $('#plateError').classList.add('is-hidden');
     $('#plate').classList.remove('has-error');
     $('#plate').setAttribute('aria-invalid', 'false');
+    $('#companyLatinHint').classList.add('is-hidden');
+    $('#plateLatinHint').classList.add('is-hidden');
+    $('#modelLatinHint').classList.add('is-hidden');
     $('#compareStatus').textContent = '';
     $('#compareStatus').classList.remove('is-on');
     updateCompareVisibility();
     $('#geoBtn').disabled = false;
-    $('#geoBtn').textContent = t('geo_btn');
-    setGeoStatus(t('geo_none'), false);
+    geoUiState = 'idle';
+    renderGeoUI();
     buildShotList();
     updateShotCount();
     renderMarks();
@@ -1967,6 +2263,8 @@
     $('#pdfStatus').className = 'pdf-status mono';
     $('#extraStatus').textContent = '';
     $('#extraStatus').classList.remove('is-on');
+    shareReady = null;
+    $('#shareBtn').textContent = t('share_btn');
     goto(1);
   });
 

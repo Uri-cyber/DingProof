@@ -35,7 +35,7 @@
 </header>
 
 <div class="wrap">
-  <nav class="steps" aria-label="Progress">
+  <nav class="steps" id="stepsNav" aria-label="Progress">
     <ol>
       <li><button type="button" class="step-tab is-active" data-goto="1" aria-current="step"><span class="step-num">1</span><span class="step-label" data-i18n="tab1">Car</span></button></li>
       <li><button type="button" class="step-tab" data-goto="2"><span class="step-num">2</span><span class="step-label" data-i18n="tab2">Photos</span></button></li>
@@ -57,18 +57,21 @@
       <label class="field">
         <span class="label" data-i18n="company_l">Rental company</span>
         <input type="text" id="company" name="company" autocomplete="off" placeholder="Hertz, Sixt, Avis…" enterkeyhint="next">
+        <span class="hint is-hidden" id="companyLatinHint" data-i18n="field_latin">This shows best in English letters and numbers — other scripts may not display correctly in the PDF.</span>
       </label>
 
       <label class="field">
         <span class="label"><span data-i18n="plate_l">Licence plate</span> <em class="req" data-i18n="plate_req">needed</em></span>
         <input type="text" id="plate" name="plate" class="mono up" autocomplete="off" placeholder="AB 123 CD" enterkeyhint="next" required aria-describedby="plateError" aria-invalid="false">
         <span class="hint" data-i18n="plate_hint">You will find it on the key tag or the car itself.</span>
+        <span class="hint is-hidden" id="plateLatinHint" data-i18n="plate_latin">Use English letters and numbers — the PDF and filename can't show other scripts.</span>
         <span class="field-error is-hidden" id="plateError" role="alert" data-i18n="plate_error">Enter the licence plate before continuing.</span>
       </label>
 
       <label class="field">
         <span class="label" data-i18n="model_l">Make and model</span>
         <input type="text" id="model" name="model" autocomplete="off" placeholder="VW Golf" enterkeyhint="next">
+        <span class="hint is-hidden" id="modelLatinHint" data-i18n="field_latin">This shows best in English letters and numbers — other scripts may not display correctly in the PDF.</span>
       </label>
 
       <label class="field">
@@ -92,7 +95,7 @@
 
       <fieldset class="field">
         <legend class="label" data-i18n="phase_l">When are you checking the car?</legend>
-        <div class="choice-row" role="radiogroup" aria-label="Pickup or return">
+        <div class="choice-row" id="phaseRow" role="radiogroup" aria-label="Pickup or return">
           <label class="choice">
             <input type="radio" name="phase" value="Pickup" checked>
             <span><span data-i18n="pickup">Pickup</span><small data-i18n="pickup_sub">Before I drive away</small></span>
@@ -184,6 +187,7 @@
         </g>
         <g id="pickupLayer" pointer-events="none"></g>
         <g id="pinLayer" pointer-events="none"></g>
+        <circle id="kbCursor" class="is-hidden" cx="160" cy="310" r="9" fill="none" stroke="#FFC531" stroke-width="2" stroke-dasharray="4 3" pointer-events="none"/>
       </svg>
       <p class="hint centred" data-i18n="svg_hint">Tap the car above to add a mark.</p>
       <p class="hint centred is-hidden" id="pickupLegend"></p>
@@ -279,6 +283,18 @@
     <div class="actions">
       <button type="button" class="btn btn-ghost" id="markCancel" data-i18n="cancel">Cancel</button>
       <button type="button" class="btn btn-primary" id="markSave" data-i18n="addmark">Add mark</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PICKUP MARK INFO (tap a grey pin at return) ===== -->
+<div class="modal-backdrop is-hidden" id="pickupInfoModal" role="dialog" aria-modal="true" aria-labelledby="pickupInfoTitle">
+  <div class="modal">
+    <h2 id="pickupInfoTitle">Pickup mark</h2>
+    <p id="pickupInfoNote" class="pickup-info-note"></p>
+    <img id="pickupInfoPhoto" class="pickup-info-photo is-hidden" alt="">
+    <div class="actions">
+      <button type="button" class="btn btn-primary" id="pickupInfoClose" data-i18n="close_btn">Close</button>
     </div>
   </div>
 </div>

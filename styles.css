@@ -342,10 +342,22 @@ input.has-error{border-color:var(--danger)}
 #compareStatus{margin-top:8px}
 #compareStatus.is-on{color:var(--ok)}
 
+/* The layer itself stays pointer-events:none so empty diagram area still
+   falls through to the "add a new mark" tap handler; each pin turns
+   pointer events back on for itself so it can be tapped for its own info
+   (a native SVG <title> tooltip never fires on touch, so a real tap
+   target is the only way this data is reachable on a phone). */
+.ppin{cursor:pointer;pointer-events:all}
 .ppin circle{fill:#8A94A4;stroke:#0E1116;stroke-width:2}
 .ppin text{
   fill:#10141A;font-family:var(--mono);font-size:11px;font-weight:700;
   text-anchor:middle;dominant-baseline:central;
+}
+
+.pickup-info-note{white-space:pre-wrap;overflow-wrap:anywhere}
+.pickup-info-photo{
+  display:block;width:100%;height:auto;border-radius:10px;
+  margin-top:12px;border:1px solid var(--border);
 }
 
 /* ---------- walk-around video ---------- */
