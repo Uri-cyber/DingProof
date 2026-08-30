@@ -56,6 +56,7 @@
     company_l: 'Rental company',
     plate_l: 'Licence plate', plate_req: 'needed',
     plate_hint: 'You will find it on the key tag or the car itself.',
+    plate_error: 'Enter the licence plate before continuing.',
     model_l: 'Make and model',
     odo_l: 'Odometer (km or miles)',
     odo_hint: 'Photo 8 shows it too, so an exact number here is optional.',
@@ -88,6 +89,7 @@
     vid_t: 'Walk-around video (optional)',
     vid_hint: '30 seconds around the car in one take. Video is even harder to argue with than photos. It is saved as its own file, next to the PDF.',
     vid_btn: 'Record video', vid_re: 'Record again', vid_ok: 'Recorded · {size}', vid_rm: 'Remove',
+    vid_too_big: 'That video is too large ({size} max). Please record a shorter one.',
     back: 'Back', next_damage: 'Next: mark damage',
     s3_title: 'Step 3 of 4 — Mark the damage',
     s3_lede: 'Tap the car where you see a scratch, dent or crack. Add one mark for each problem. If the car is perfect, skip this step.',
@@ -156,6 +158,7 @@
     company_l: 'חברת ההשכרה',
     plate_l: 'מספר רישוי', plate_req: 'חובה',
     plate_hint: 'מופיע על המחזיק של המפתח או על הרכב עצמו.',
+    plate_error: 'הזינו מספר רישוי לפני שממשיכים.',
     model_l: 'יצרן ודגם',
     odo_l: 'מד אוץ (ק"מ או מייל)',
     odo_hint: 'מופיע גם בתמונה 8, אז מספר מדויק כאן הוא רשות.',
@@ -194,6 +197,7 @@
     vid_t: 'סרטון הקפה (רשות)',
     vid_hint: '30 שניות מסביב לרכב בצילום אחד. עם וידאו קשה עוד יותר להתווכח. נשמר כקובץ נפרד, לצד ה-PDF.',
     vid_btn: 'צלם סרטון', vid_re: 'צלם שוב', vid_ok: 'הוקלט · {size}', vid_rm: 'הסר',
+    vid_too_big: 'הסרטון גדול מדי (מקסימום {size}). צלמו סרטון קצר יותר.',
     back: 'חזרה', next_damage: 'המשך: סימון נזקים',
     s3_title: 'שלב 3 מתוך 4 — סמנו את הנזקים',
     s3_lede: 'לחצו על הרכב במקום שבו יש שריטה, מעיכה או סדק. סימון אחד לכל בעיה. אם הרכב תקין, דלגו על השלב.',
@@ -262,6 +266,7 @@
     company_l: 'Mietwagenfirma',
     plate_l: 'Kennzeichen', plate_req: 'erforderlich',
     plate_hint: 'Steht auf dem Schlüsselanhänger oder am Auto selbst.',
+    plate_error: 'Geben Sie das Kennzeichen ein, bevor Sie fortfahren.',
     model_l: 'Marke und Modell',
     odo_l: 'Kilometerstand',
     odo_hint: 'Auch auf Foto 8 zu sehen, eine genaue Zahl hier ist optional.',
@@ -300,6 +305,7 @@
     vid_t: 'Rundgang-Video (optional)',
     vid_hint: '30 Sekunden in einer Aufnahme ums Auto. Video ist noch schwerer zu bestreiten als Fotos. Wird als eigene Datei neben dem PDF gespeichert.',
     vid_btn: 'Video aufnehmen', vid_re: 'Erneut aufnehmen', vid_ok: 'Aufgenommen · {size}', vid_rm: 'Entfernen',
+    vid_too_big: 'Das Video ist zu groß (maximal {size}). Bitte ein kürzeres Video aufnehmen.',
     back: 'Zurück', next_damage: 'Weiter: Schäden markieren',
     s3_title: 'Schritt 3 von 4 — Schäden markieren',
     s3_lede: 'Tippen Sie auf das Auto, wo ein Kratzer, eine Delle oder ein Riss ist. Für jedes Problem eine Markierung. Wenn das Auto einwandfrei ist, überspringen Sie diesen Schritt.',
@@ -368,6 +374,7 @@
     company_l: 'Société de location',
     plate_l: 'Plaque d\'immatriculation', plate_req: 'requis',
     plate_hint: 'Elle se trouve sur le porte-clés ou sur la voiture.',
+    plate_error: 'Saisissez la plaque d\'immatriculation avant de continuer.',
     model_l: 'Marque et modèle',
     odo_l: 'Kilométrage',
     odo_hint: 'Visible aussi sur la photo 8, un chiffre exact ici est facultatif.',
@@ -406,6 +413,7 @@
     vid_t: 'Vidéo du tour (facultatif)',
     vid_hint: '30 secondes autour de la voiture en une seule prise. Une vidéo est encore plus difficile à contester que des photos. Enregistrée comme fichier séparé, à côté du PDF.',
     vid_btn: 'Filmer', vid_re: 'Refilmer', vid_ok: 'Enregistrée · {size}', vid_rm: 'Supprimer',
+    vid_too_big: 'Cette vidéo est trop volumineuse ({size} maximum). Filmez une vidéo plus courte.',
     back: 'Retour', next_damage: 'Suivant : marquer les dommages',
     s3_title: 'Étape 3 sur 4 — Marquer les dommages',
     s3_lede: 'Touchez la voiture là où il y a une rayure, une bosse ou une fissure. Une marque par problème. Si la voiture est impeccable, passez cette étape.',
@@ -474,6 +482,7 @@
     company_l: 'Empresa de alquiler',
     plate_l: 'Matrícula', plate_req: 'obligatorio',
     plate_hint: 'Está en el llavero o en el propio coche.',
+    plate_error: 'Introduce la matrícula antes de continuar.',
     model_l: 'Marca y modelo',
     odo_l: 'Kilometraje',
     odo_hint: 'También se ve en la foto 8, un número exacto aquí es opcional.',
@@ -512,6 +521,7 @@
     vid_t: 'Vídeo del recorrido (opcional)',
     vid_hint: '30 segundos alrededor del coche en una sola toma. Un vídeo es aún más difícil de rebatir que las fotos. Se guarda como archivo aparte, junto al PDF.',
     vid_btn: 'Grabar vídeo', vid_re: 'Grabar de nuevo', vid_ok: 'Grabado · {size}', vid_rm: 'Quitar',
+    vid_too_big: 'Ese vídeo es demasiado grande (máximo {size}). Graba uno más corto.',
     back: 'Atrás', next_damage: 'Siguiente: marcar daños',
     s3_title: 'Paso 3 de 4 — Marca los daños',
     s3_lede: 'Toca el coche donde veas un rayón, abolladura o grieta. Una marca por cada problema. Si el coche está perfecto, salta este paso.',
@@ -704,9 +714,30 @@
     window.scrollTo(0, 0);
   }
 
+  // Fix 3: nothing stopped a driver from reaching Step 2 (and beyond)
+  // with no licence plate recorded, so a report could end up with no way
+  // to identify which car it belongs to.
+  function validatePlateBeforeStep2() {
+    var input = $('#plate');
+    var error = $('#plateError');
+    var ok = input.value.trim().length > 0;
+    error.classList.toggle('is-hidden', ok);
+    input.classList.toggle('has-error', !ok);
+    input.setAttribute('aria-invalid', ok ? 'false' : 'true');
+    if (!ok) { input.focus(); }
+    return ok;
+  }
+
+  $('#plate').addEventListener('input', function () {
+    if (!$('#plateError').classList.contains('is-hidden')) { validatePlateBeforeStep2(); }
+  });
+
   document.addEventListener('click', function (ev) {
     var btn = ev.target.closest ? ev.target.closest('[data-goto]') : null;
-    if (btn) { goto(Number(btn.getAttribute('data-goto'))); }
+    if (!btn) { return; }
+    var target = Number(btn.getAttribute('data-goto'));
+    if (target === 2 && !validatePlateBeforeStep2()) { return; }
+    goto(target);
   });
 
   /* ---------------------------------------------------------------
@@ -752,11 +783,23 @@
     var now = stamp();
     return {
       app: 'DingProof',
-      version: 1,
+      version: 2,
       plate: tr.plate,
       createdLocal: now.local,
       createdIso: now.iso,
-      marks: state.marks.map(function (m) { return { x: m.x, y: m.y, type: m.type }; })
+      // Fix 4: note and photo used to be dropped here, so a pickup mark's
+      // context was lost the moment the file was saved -- the driver at
+      // return could see *where* old damage was, but not what it was or
+      // what it looked like.
+      marks: state.marks.map(function (m) {
+        return {
+          x: m.x,
+          y: m.y,
+          type: m.type,
+          note: m.note || '',
+          photo: m.photo ? { dataUrl: m.photo.dataUrl, width: m.photo.width, height: m.photo.height } : null
+        };
+      })
     };
   }
 
@@ -981,6 +1024,7 @@
     var status = $('#videoStatus');
     var btn = $('#videoBtn');
     var rm = $('#videoRemove');
+    status.classList.remove('is-error');
     if (state.video) {
       status.textContent = t('vid_ok', { size: bytesLabel(state.video.size) });
       status.classList.add('is-on');
@@ -999,13 +1043,30 @@
     if (!input.files || !input.files[0]) { return; }
     var file = input.files[0];
     input.value = '';
+
+    // Fix 6: RegExp.$1 depends on global regex state left over from the last
+    // exec() anywhere on the page; use the match's own capture group instead.
+    var extMatch = /\.(\w+)$/.exec(file.name || '');
+    var ext = extMatch ? extMatch[1] : 'mp4';
+
+    // Fix 1: MAX_VIDEO_BYTES was declared but never checked here, so an
+    // oversized recording was accepted and only failed later, silently,
+    // when the host's save API rejected it.
+    if (file.size > MAX_VIDEO_BYTES) {
+      var status = $('#videoStatus');
+      status.classList.remove('is-on');
+      status.classList.add('is-error');
+      status.textContent = t('vid_too_big', { size: bytesLabel(MAX_VIDEO_BYTES) });
+      return;
+    }
+
     if (state.video && state.video.url) { URL.revokeObjectURL(state.video.url); }
     state.video = {
       blob: file,
       url: URL.createObjectURL(file),
       size: file.size,
       mime: file.type || 'video/mp4',
-      ext: (file.name && /\.(\w+)$/.test(file.name)) ? RegExp.$1 : 'mp4',
+      ext: ext,
       takenAt: stamp()
     };
     renderVideoUI();
@@ -1063,6 +1124,11 @@
       var txt = document.createElementNS(SVGNS, 'text');
       txt.setAttribute('x', m.x); txt.setAttribute('y', m.y);
       txt.textContent = 'P' + (i + 1);
+      // Hover/long-press title so the note saved at pickup (now carried
+      // through in the pickup file) is actually reachable at return.
+      var title = document.createElementNS(SVGNS, 'title');
+      title.textContent = 'P' + (i + 1) + ': ' + (m.type || '') + (m.note ? ' \u2014 ' + m.note : '');
+      g.appendChild(title);
       g.appendChild(c); g.appendChild(txt);
       layer.appendChild(g);
     });
@@ -1327,9 +1393,16 @@
         btn.textContent = t('geo_saved');
       },
       function () {
+        // Fix 5: a denied or timed-out request left geoAsked permanently
+        // true and the button permanently disabled, so a driver who
+        // dismissed the browser's permission prompt by mistake (or lost
+        // a fix in a garage) had no way to try again short of restarting
+        // the whole inspection and losing every photo taken so far.
         state.geo = null;
+        state.geoAsked = false;
+        btn.disabled = false;
         setGeoStatus(t('geo_none'), false);
-        btn.textContent = t('geo_na');
+        btn.textContent = t('geo_btn');
       },
       { enableHighAccuracy: true, timeout: 12000, maximumAge: 0 }
     );
@@ -1877,6 +1950,9 @@
     if (state.video && state.video.url) { URL.revokeObjectURL(state.video.url); }
     state.video = null;
     $('#tripForm').reset();
+    $('#plateError').classList.add('is-hidden');
+    $('#plate').classList.remove('has-error');
+    $('#plate').setAttribute('aria-invalid', 'false');
     $('#compareStatus').textContent = '';
     $('#compareStatus').classList.remove('is-on');
     updateCompareVisibility();

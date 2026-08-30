@@ -172,6 +172,11 @@ legend.label{padding:0}
 .choice input:checked + span{border-color:var(--accent);background:#20242A}
 .choice input:focus-visible + span{outline:3px solid var(--accent);outline-offset:2px}
 
+.field-error{
+  display:block;margin:6px 0 0;color:var(--danger);font-size:13px;font-weight:700;
+}
+input.has-error{border-color:var(--danger)}
+
 /* ---------- geolocation ---------- */
 .geo-box{
   display:flex;gap:12px;align-items:center;justify-content:space-between;
@@ -356,6 +361,7 @@ legend.label{padding:0}
 }
 .video-row input[type=file]:focus-visible + .btn{outline:3px solid var(--accent);outline-offset:2px}
 #videoStatus.is-on{color:var(--ok)}
+#videoStatus.is-error{color:var(--danger)}
 
 /* ---------- photo quality ---------- */
 .shot-quality{margin:4px 0 0;color:var(--accent);font-size:12.5px;font-weight:700}
